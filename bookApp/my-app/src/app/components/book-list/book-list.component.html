@@ -1,0 +1,20 @@
+<div class="row">
+    <div *ngFor="let item of bookList" class="col s4 m4">
+        <div class="card">
+            <div class="card-image">
+                <img src="http://i.imgur.com/IibDqjf.jpg">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{item.name}}</span>
+                <!--Country: {{item.country}}<br>
+                ISBN: {{item.isbn}}<br>
+                Number of pages: {{item.numberOfPages}}<br>
+                Publisher: {{item.publisher}}<br>
+                Released: {{item.released}}-->
+            </div>
+            <div class="card-action">
+                <a (click)="onOpen(item)" style="cursor: pointer">Open</a>
+            </div>
+        </div>
+    </div>
+</div>
