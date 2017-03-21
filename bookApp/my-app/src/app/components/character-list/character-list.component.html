@@ -1,4 +1,4 @@
 <div class="collection">
-    <a style="cursor: pointer" *ngFor="let character of visibleList" class="collection-item" (click)="onOpen(character)">{{character.name}}</a>
+    <a style="cursor: pointer" *ngFor="let character of visibleList" class="collection-item" (click)="onOpen(character)">{{character.name? character.name : 'No name'}}</a>
     <div style="text-align: center; padding:10px 0; cursor: pointer;" (click)="loadMore()">Load More</div>
 </div>
