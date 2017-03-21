@@ -1,0 +1,45 @@
+<div *ngIf="character">
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <div class="card-panel teal">
+                <div style="font-size: 20px; text-align: center">{{character.name}}</div>
+                Gender: {{character.gender}}<br>
+                Culture: "Northmen",
+                Born: "In 283 AC",
+                Died: "",
+                Titles: [
+                "Lord Commander of the Night's Watch"
+                ],
+                Aliases: [
+                "Lord Snow",
+                "Ned Stark's Bastard",
+                "The Snow of Winterfell",
+                "The Crow-Come-Over",
+                "The 998th Lord Commander of the Night's Watch",
+                "The Bastard of Winterfell",
+                "The Black Bastard of the Wall",
+                "Lord Crow"
+                ],
+                "father": "",
+                "mother": "",
+                "spouse": "",
+                "allegiances": [
+                "http://anapioficeandfire.com/api/houses/362"
+                ],
+                "books": [
+                "http://anapioficeandfire.com/api/books/5"
+                ],
+                "povBooks": [
+                "http://anapioficeandfire.com/api/books/1",
+                "http://anapioficeandfire.com/api/books/2",
+                "http://anapioficeandfire.com/api/books/3",
+                "http://anapioficeandfire.com/api/books/8"
+                ],<br>
+                "tvSeries": <span *ngFor="let season of character.tvSeries">{{season}}, </span><br>
+                "playedBy": [
+                "Kit Harington"
+                ]
+            </div>
+        </div>
+    </div>
+</div>

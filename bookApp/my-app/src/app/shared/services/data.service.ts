@@ -4,7 +4,7 @@ import {Http} from "@angular/http";
 import 'rxjs/Rx';
 
 @Injectable()
-export class BookService {
+export class DataService {
     baseUrl: string;
 
     constructor(private http: Http) {
@@ -18,6 +18,11 @@ export class BookService {
 
     getBook(id) {
         return this.http.get(this.baseUrl + 'books/' + id)
+            .map(res => res.json());
+    }
+
+    getCharacter(id) {
+        return this.http.get(this.baseUrl + 'characters/' + id)
             .map(res => res.json());
     }
 }

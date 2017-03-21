@@ -4,18 +4,20 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {BookService} from "./shared/book.service";
 import {BookListComponent} from "./components/book-list/book-list.component";
 import {BookComponent} from "./components/book/book.component";
 import {AppRoutingModule} from "./app.routing.module";
-import {CharacterListComponent} from "./components/character-list/character-list";
+import {CharacterListComponent} from "./components/character-list/character-list.component";
+import {CharacterComponent} from "./components/character/character.component";
+import {DataService} from "./shared/services/data.service";
 
 @NgModule({
     declarations: [
         AppComponent,
         BookListComponent,
         BookComponent,
-        CharacterListComponent
+        CharacterListComponent,
+        CharacterComponent
     ],
     imports: [
         BrowserModule,
@@ -24,7 +26,7 @@ import {CharacterListComponent} from "./components/character-list/character-list
         AppRoutingModule
     ],
     providers: [
-        BookService
+        DataService
     ],
     bootstrap: [AppComponent]
 })

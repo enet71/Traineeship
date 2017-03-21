@@ -1,18 +1,30 @@
-<div *ngIf="book" class="row">
-    <div class="col s12 m12">
-        <div class="card-panel teal" style="color: #343434;background-color: #ffffff!important;">
-            <img style="float:left; width: 300px; margin-right: 10px" src="http://i.imgur.com/IibDqjf.jpg">
-            <div style="font-size: 25px; text-align: center">{{book.name}}</div>
-            <div class="divider" style="margin-bottom: 10px"></div>
-            <div style="font-size: 18px">
-                Country:{{book.country}}<br>
-                ISBN:{{book.isbn}}<br>
-                Media type:{{book.media}}<br>
-                Number of pages:{{book.numberOfPages}}<br>
-                Publisher:{{book.publisher}}<br>
-                Released:{{book.released}}
+<div *ngIf="book">
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card-panel teal">
+                <img style="float:left; width: 300px; margin-right: 10px" src="http://i.imgur.com/IibDqjf.jpg">
+                <div style="font-size: 25px; text-align: center">{{book.name}}</div>
+                <div class="divider" style="margin-bottom: 10px"></div>
+                <div style="font-size: 18px">
+                    Country: {{book.country}}<br>
+                    ISBN: {{book.isbn}}<br>
+                    Media type: {{book.mediaType}}<br>
+                    Number of pages: {{book.numberOfPages}}<br>
+                    Publisher: {{book.publisher}}<br>
+                    Released: {{book.released}}
+                </div>
+                <br style="clear: both;">
             </div>
-            <br style="clear: both;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel teal character-list">
+                Heroes
+                <div class="scroll">
+                    <character-list [characterList]="book.characters"></character-list>
+                </div>
+            </div>
         </div>
     </div>
 </div>
