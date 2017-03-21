@@ -10,6 +10,7 @@ import {AppRoutingModule} from "./app.routing.module";
 import {CharacterListComponent} from "./components/character-list/character-list.component";
 import {CharacterComponent} from "./components/character/character.component";
 import {DataService} from "./shared/services/data.service";
+import {HouseComponent} from "./components/house/house.component";
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import {DataService} from "./shared/services/data.service";
         BookListComponent,
         BookComponent,
         CharacterListComponent,
-        CharacterComponent
+        CharacterComponent,
+        HouseComponent
     ],
     imports: [
         BrowserModule,

@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
 
 import 'rxjs/Rx';
+import {Observable} from "rxjs";
 
 @Injectable()
 export class DataService {
@@ -12,17 +13,31 @@ export class DataService {
     }
 
     getBooks() {
-        return this.http.get(this.baseUrl + 'books')
-            .map(res => res.json());
+        return this.getData('books');
     }
 
     getBook(id) {
-        return this.http.get(this.baseUrl + 'books/' + id)
-            .map(res => res.json());
+        return this.getDataId('books/', id);
     }
 
     getCharacter(id) {
-        return this.http.get(this.baseUrl + 'characters/' + id)
+        return this.getDataId('characters/', id);
+    }
+
+    getHouse(id) {
+        return this.getDataId('houses/', id);
+    }
+
+    getDataId(request, id) {
+        if(id){
+            return this.getData(request + id);
+        }else {
+            return Observable.from("");
+        }
+    }
+
+    getData(request) {
+        return this.http.get(this.baseUrl + request)
             .map(res => res.json());
     }
 }

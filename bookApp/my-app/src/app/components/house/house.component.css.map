@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,kBAAW;EACT,gBAAgB,EAAE,gBAAe;EACjC,KAAK,EAAE,OAAO;EACd,wBAAK;IACH,WAAW,EAAE,GAAG;IAChB,KAAK,EAAE,IAAI;EAGb,wBAAK;IACH,MAAM,EAAE,OAAO;IACf,eAAe,EAAE,SAAS;IAE1B,8BAAO;MACL,KAAK,EAAE,OAAO",
+"sources": ["house.component.scss"],
+"names": [],
+"file": "house.component.css"
+}

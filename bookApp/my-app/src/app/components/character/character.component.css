@@ -1,0 +1,13 @@
+.character .card-panel {
+  background-color: white !important;
+  color: #4e4e4e; }
+  .character .card-panel .name {
+    font-weight: 500;
+    color: #000; }
+  .character .card-panel .link {
+    cursor: pointer;
+    text-decoration: underline; }
+    .character .card-panel .link:hover {
+      color: #e59232; }
+
+/*# sourceMappingURL=character.component.css.map */

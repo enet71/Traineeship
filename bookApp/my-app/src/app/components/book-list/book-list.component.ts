@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {covers} from "../../shared/book-covers";
 import {DataService} from "../../shared/services/data.service";
+import {StaticMethods} from "../../shared/static-methods";
 
 @Component({
     selector: 'book-list',
@@ -26,14 +27,12 @@ export class BookListComponent implements OnInit {
     }
 
     onOpen(item) {
-        this.router.navigate(['book', item.url.split('/').pop()]);
+        this.router.navigate(['book', StaticMethods.getId(item.url)]);
     }
 
     setCover() {
-        let a = covers;
-
         this.bookList = this.bookList.map(element => {
-            let book = a.find((cover: any) => cover.bookUrl === element.url);
+            let book = covers.find((cover: any) => cover.bookUrl === element.url);
             let url = book ? book.coverUrl : covers[covers.length - 1].coverUrl;
             element.bookCover = url;
             return element;

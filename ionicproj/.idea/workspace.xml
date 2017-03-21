@@ -388,12 +388,10 @@
       <list>
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/components/book/book.component.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/app.routing.module.js" />
-        <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/shared/book.service.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/components/book-list/book-list.component.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/components/character/character.component.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/app.component.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/app.module.js" />
-        <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/shared/character.service.js" />
         <option value="$PROJECT_DIR$/../bookApp/my-app/src/app/components/character-list/character-list.component.js" />
       </list>
     </option>

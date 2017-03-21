@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {DataService} from "../../shared/services/data.service";
+import {StaticMethods} from "../../shared/static-methods";
 
 @Component({
     selector: 'character-list',
@@ -14,7 +15,7 @@ export class CharacterListComponent implements OnInit {
     visibleList = [];
 
     start: number = 0;
-    loadNum: number = 15;
+    @Input() loadNum: number = 15;
 
     constructor(private dataService:DataService,private router:Router) {
     }
@@ -33,7 +34,7 @@ export class CharacterListComponent implements OnInit {
 
     listPush() {
         Observable.from(this.characterList.slice(this.start, this.start + this.loadNum))
-            .map((element: string) => element.split('/').pop())
+            .map((element: string) => StaticMethods.getId(element))
             .subscribe(element=> this.dataService.getCharacter(element).subscribe(response => this.visibleList.push(response)));
         this.start += this.loadNum;
     }
