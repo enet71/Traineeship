@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {covers} from "../../shared/book-covers";
 import {DataService} from "../../shared/services/data.service";
 import {StaticMethods} from "../../shared/static-methods";
+import {Book} from "../../shared/interfaces/book";
 
 @Component({
     selector: 'book-list',
@@ -11,19 +12,16 @@ import {StaticMethods} from "../../shared/static-methods";
 })
 
 export class BookListComponent implements OnInit {
-    bookList = [];
+    bookList:Book[] = [];
 
     constructor(private dataService: DataService, private router: Router) {
     }
 
     ngOnInit(): void {
         this.dataService.getBooks().subscribe(response => {
-            //console.log(response);
             this.bookList = response;
             this.setCover();
         });
-
-
     }
 
     onOpen(item) {
@@ -33,8 +31,7 @@ export class BookListComponent implements OnInit {
     setCover() {
         this.bookList = this.bookList.map(element => {
             let book = covers.find((cover: any) => cover.bookUrl === element.url);
-            let url = book ? book.coverUrl : covers[covers.length - 1].coverUrl;
-            element.bookCover = url;
+            element.bookCover = book ? book.coverUrl : covers[covers.length - 1].coverUrl;
             return element;
         });
     }

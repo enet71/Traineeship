@@ -1,8 +1,10 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../shared/services/data.service";
-import {Character} from "../../shared/classes/character";
+import {Character} from "../../shared/interfaces/character";
 import {StaticMethods} from "../../shared/static-methods";
+import {Book} from "../../shared/interfaces/book";
+import {House} from "../../shared/interfaces/house";
 
 @Component({
     selector: 'character',
@@ -11,15 +13,13 @@ import {StaticMethods} from "../../shared/static-methods";
 })
 
 export class CharacterComponent implements OnInit {
-    character;
-
-    books;
-    povBooks;
-    houses;
-
-    father;
-    mother;
-    spouse;
+    character:Character;
+    books:Book[];
+    povBooks:Book[];
+    houses:House[];
+    father:Character;
+    mother:Character;
+    spouse:Character;
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
 

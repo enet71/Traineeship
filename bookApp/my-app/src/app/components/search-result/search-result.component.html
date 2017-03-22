@@ -1,0 +1,22 @@
+<div *ngIf="characterList.length > 0">
+    <div style="font-size: 20px; text-align: center">Characters</div>
+    <div class="collection">
+        <a style="cursor: pointer" *ngFor="let character of characterList" class="collection-item"
+           (click)="onRoute('character',character)">{{character.name? character.name : 'No name'}}</a>
+    </div>
+</div>
+<div *ngIf="houseList.length > 0">
+    <div style="font-size: 20px; text-align: center">Houses</div>
+    <div class="collection">
+        <a style="cursor: pointer" *ngFor="let house of houseList" class="collection-item"
+           (click)="onRoute('house',house)">{{house.name?
+            house.name : 'No name'}}</a>
+    </div>
+</div>
+<div *ngIf="bookList.length > 0">
+    <div style="font-size: 20px; text-align: center">Books</div>
+    <div class="collection">
+        <a style="cursor: pointer" *ngFor="let book of bookList" class="collection-item" (click)="onRoute('book',book)">{{book.name?
+            book.name : 'No name'}}</a>
+    </div>
+</div>

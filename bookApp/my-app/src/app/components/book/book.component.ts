@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {DataService} from "../../shared/services/data.service";
 import {covers} from "../../shared/book-covers";
+import {Book} from "../../shared/interfaces/book";
 
 @Component({
     selector: 'book',
@@ -10,7 +11,7 @@ import {covers} from "../../shared/book-covers";
 })
 
 export class BookComponent implements OnInit {
-    book;
+    book:Book;
 
     constructor(private route: ActivatedRoute, private dataService: DataService) {
     }

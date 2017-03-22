@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../shared/services/data.service";
 import {StaticMethods} from "../../shared/static-methods";
+import {Character} from "../../shared/interfaces/character";
+import {House} from "../../shared/interfaces/house";
 
 @Component({
     selector: 'house',
@@ -10,14 +12,12 @@ import {StaticMethods} from "../../shared/static-methods";
 })
 
 export class HouseComponent implements OnInit {
-    house;
-
-    branches;
-
-    currentLord;
-    heir;
-    overlord;
-    founder;
+    house:House;
+    branches:House[];
+    currentLord:Character;
+    heir:Character;
+    overlord:Character;
+    founder:Character;
 
     constructor(private route: ActivatedRoute, private dataService: DataService, private router: Router) {
 

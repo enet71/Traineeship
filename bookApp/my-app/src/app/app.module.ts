@@ -11,6 +11,9 @@ import {CharacterListComponent} from "./components/character-list/character-list
 import {CharacterComponent} from "./components/character/character.component";
 import {DataService} from "./shared/services/data.service";
 import {HouseComponent} from "./components/house/house.component";
+import {SearchComponent} from "./components/search/search.component";
+import {SearchResultComponent} from "./components/search-result/search-result.component";
+import {HouseListComponent} from "./components/house-list/house-list.component";
 
 @NgModule({
     declarations: [
@@ -19,7 +22,10 @@ import {HouseComponent} from "./components/house/house.component";
         BookComponent,
         CharacterListComponent,
         CharacterComponent,
-        HouseComponent
+        HouseComponent,
+        SearchComponent,
+        SearchResultComponent,
+        HouseListComponent
     ],
     imports: [
         BrowserModule,

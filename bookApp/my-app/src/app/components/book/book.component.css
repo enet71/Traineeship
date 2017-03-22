@@ -1,16 +1,9 @@
 .card-panel {
   color: #343434;
   background-color: #ffffff !important; }
-
-/*
-.character-list {
-  .scroll {
-    height: 500px;
-    overflow: {
-      x: hidden;
-      y: scroll;
-    }
-  }
-}*/
+  .card-panel img {
+    float: left;
+    width: 300px;
+    margin-right: 10px; }
 
 /*# sourceMappingURL=book.component.css.map */
