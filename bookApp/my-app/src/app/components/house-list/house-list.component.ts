@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {DataService} from "../../shared/services/data.service";
 import {House} from "../../shared/interfaces/house";
@@ -9,7 +9,7 @@ import {House} from "../../shared/interfaces/house";
     styleUrls: ['house-list.component.css']
 })
 
-export class HouseListComponent {
+export class HouseListComponent implements OnInit{
     houseList:House[] = [];
     start: number = 0;
     loadNum: number = 15;

@@ -1,19 +1,24 @@
- .character{
-   .card-panel{
-     background-color: white!important;
-     color: #4e4e4e;
-     .name{
-       font-weight: 500;
-       color: #000;
-     }
+.character {
+  .card-panel {
+    background-color: white !important;
+    color: #4e4e4e;
+    .name {
+      font-weight: 500;
+      color: #000;
+    }
 
-     .link{
-       cursor: pointer;
-       text-decoration: underline;
+    .title {
+      font-size: 20px;
+      text-align: center;
+    }
 
-       &:hover{
-         color: #e59232;
-       }
-     }
-   }
- }
+    .link {
+      cursor: pointer;
+      text-decoration: underline;
+
+      &:hover {
+        color: #e59232;
+      }
+    }
+  }
+}

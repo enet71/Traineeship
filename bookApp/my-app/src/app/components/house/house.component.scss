@@ -1,17 +1,22 @@
-.house{
-  .card-panel{
-    background-color: white!important;
+.house {
+  .card-panel {
+    background-color: white !important;
     color: #4e4e4e;
-    .name{
+    .name {
       font-weight: 500;
       color: #000;
     }
 
-    .link{
+    .title {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .link {
       cursor: pointer;
       text-decoration: underline;
 
-      &:hover{
+      &:hover {
         color: #e59232;
       }
     }
