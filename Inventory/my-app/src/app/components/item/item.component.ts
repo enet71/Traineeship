@@ -18,5 +18,6 @@ export class ItemComponent implements OnInit{
 
     onRemove(){
         this.itemService.removeItem(this.item);
+        this.itemService.addItemCharacter(this.item);
     }
 }
