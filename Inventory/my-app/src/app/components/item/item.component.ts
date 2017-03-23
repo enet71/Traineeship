@@ -6,18 +6,19 @@ import {ItemService} from "../../shared/services/item.service";
     styleUrls: ['item.component.css']
 })
 
-export class ItemComponent implements OnInit{
+export class ItemComponent{
     @Input() item;
 
     constructor(private itemService: ItemService) {
 
     }
 
-    ngOnInit(): void {
+    onRemove() {
+        this.itemService.shiftItem(this.item);
     }
 
-    onRemove(){
-        this.itemService.removeItem(this.item);
-        this.itemService.addItemCharacter(this.item);
+    onDragStart() {
+        this.itemService.dragItemVal = this.item.itemVal;
+        this.itemService.dragItem = this.item;
     }
 }

@@ -1,0 +1,231 @@
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 9999;
+  margin-left: 30px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.characterItemsDem {
+  background: url("http://image.prntscr.com/image/a5a35afac1e449f893566580491f26db.png") no-repeat;
+}
+
+.characterItemsWar {
+  background: url("http://image.prntscr.com/image/e22809e3ab7f4d7bbf63804384165269.png") no-repeat;
+}
+
+.characterItemsDemMini {
+  background: url("http://image.prntscr.com/image/ee043e57948749fdbf275cf3166c7a86.png") no-repeat;
+}
+
+.inventoryItems {
+  float: left;
+}
+
+.item-0 {
+  top: 126px;
+  left: 345px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -126px;
+  background-position-x: -346px;
+}
+
+.item-1 {
+  top: 225px;
+  left: 319px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -225px;
+  background-position-x: -320px;
+}
+
+.item-2 {
+  top: 325px;
+  left: 331px;
+  width: 40px;
+  height: 40px;
+  background-position-y: -325px;
+  background-position-x: -332px;
+}
+
+.item-3 {
+  top: 380px;
+  left: 319px;
+  width: 64px;
+  height: 128px;
+  background-position-y: -380px;
+  background-position-x: -320px;
+}
+
+.item-4 {
+  top: 102px;
+  left: 427px;
+  width: 64px;
+  height: 64px;
+  background-position-y: -102px;
+  background-position-x: -428px;
+}
+
+.item-5 {
+  top: 172px;
+  left: 419px;
+  width: 80px;
+  height: 113px;
+  background-position-y: -172px;
+  background-position-x: -420px;
+}
+
+.item-6 {
+  top: 291px;
+  left: 419px;
+  width: 80px;
+  height: 32px;
+  background-position-y: -291px;
+  background-position-x: -420px;
+}
+
+.item-7 {
+  top: 329px;
+  left: 427px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -329px;
+  background-position-x: -428px;
+}
+
+.item-8 {
+  top: 421px;
+  left: 427px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -421px;
+  background-position-x: -428px;
+}
+
+.item-9 {
+  top: 146px;
+  left: 511px;
+  width: 54px;
+  height: 54px;
+  background-position-y: -146px;
+  background-position-x: -512px;
+}
+
+.item-10 {
+  top: 225px;
+  left: 535px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -225px;
+  background-position-x: -536px;
+}
+
+.item-11 {
+  top: 325px;
+  left: 547px;
+  width: 40px;
+  height: 40px;
+  background-position-y: -325px;
+  background-position-x: -548px;
+}
+
+.item-12 {
+  top: 380px;
+  left: 535px;
+  width: 64px;
+  height: 128px;
+  background-position-x: -536px;
+  background-position-y: -380px;
+}
+
+.item-inventory-0 {
+  background-position-x: -176px;
+  background-position-y: -106px;
+}
+
+.item-inventory-1 {
+  background-position-x: -176px;
+  background-position-y: -53px;
+}
+
+.item-inventory-2 {
+  background-position-x: 0px;
+  background-position-y: -53px;
+}
+
+.item-inventory-3 {
+  background-position-x: -44px;
+  background-position-y: 0px;
+}
+
+.item-inventory-4 {
+  background-position-x: 0px;
+  background-position-y: -159px;
+}
+
+.item-inventory-5 {
+  background-position-x: 0px;
+  background-position-y: 0px;
+}
+
+.item-inventory-6 {
+  background-position-x: -44px;
+  background-position-y: -53px;
+}
+
+.item-inventory-7 {
+  background-position-x: -176px;
+  background-position-y: 0px;
+}
+
+.item-inventory-8 {
+  background-position-x: -88px;
+  background-position-y: -106px;
+}
+
+.item-inventory-9 {
+  background-position-x: 0px;
+  background-position-y: -106px;
+}
+
+.item-inventory-10 {
+  background-position-x: -132px;
+  background-position-y: -106px;
+}
+
+.item-inventory-11 {
+  background-position-x: -88px;
+  background-position-y: 0px;
+}
+
+.item-inventory-12 {
+  background-position-x: -44px;
+  background-position-y: -106px;
+}
+
+.item-inventory-13 {
+  background-position-x: -132px;
+  background-position-y: -53px;
+}
+
+.item-inventory-14 {
+  background-position-x: -132px;
+  background-position-y: 0px;
+}
+
+.item-inventory-15 {
+  background-position-x: -88px;
+  background-position-y: -53px;
+}
+
+

@@ -9,13 +9,23 @@ import {ItemService} from "../../shared/services/item.service";
 
 export class CharacterComponent {
     itemList = [];
+    hero = {};
 
     constructor(private itemService: ItemService) {
         this.itemList = itemService.getItemListCharacters();
-
+        this.hero = itemService.hero;
     }
 
-    onAddItem() {
-        this.itemService.addItem();
+    onDragOver(ev,itemVal){
+        if(itemVal === this.itemService.dragItemVal){
+            ev.preventDefault();
+        }
+    }
+
+    onDrop(ev,itemVal){
+        if(itemVal === this.itemService.dragItemVal){
+            ev.preventDefault();
+            this.itemService.shiftItem(this.itemService.dragItem);
+        }
     }
 }

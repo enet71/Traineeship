@@ -1,147 +1,30 @@
 import {Injectable} from "@angular/core";
-import {element} from "protractor";
+import {itemList} from "../item.data";
 
 @Injectable()
 export class ItemService {
-    numItem = 10;
-    widthItem = 50;
-    max = 60;
+    public dragItemVal;
+    public dragItemIndex;
+    public dragItem;
 
-    itemList: any = [
-        {
-            inventoryIndex: 0,
-            status: false,
-            itemVal: 0,
-        },
-        {
-            inventoryIndex: 1,
-            status: false,
-            itemVal: 1,
-        },
-        {
-            inventoryIndex: 2,
-            status: false,
-            itemVal: 2,
-        },
-        {
-            inventoryIndex: 3,
-            status: false,
-            itemVal: 3,
-        },
-        {
-            inventoryIndex: 4,
-            status: false,
-            itemVal: 4,
-        },
-        {
-            inventoryIndex: 5,
-            status: false,
-            itemVal: 5,
-        },
-        {
-            inventoryIndex: 6,
-            status: false,
-            itemVal: 6,
-        },
-        {
-            inventoryIndex: 7,
-            status: false,
-            itemVal: 7,
-        },
-        {
-            inventoryIndex: 8,
-            status: false,
-            itemVal: 8,
-        },
-        {
-            inventoryIndex: 9,
-            status: false,
-            itemVal: 9,
-        },
-        {
-            inventoryIndex: 10,
-            status: false,
-            itemVal: 10,
-        },
-        {
-            inventoryIndex: 11,
-            status: false,
-            itemVal: 11,
-        },
-        {
-            inventoryIndex: 12,
-            status: false,
-            itemVal: 12,
-        }
-    ];
+    private numItem:number = 10;
+    private widthItem:number = 43.5;
+    private heightItem:number = 53;
+    private max:number = 60;
+    private itemListCharacter: any = [];
+    private itemList = [];
 
-    itemListCharacter: any = [
-        /*{
-         inventoryIndex: 0,
-         status: true,
-         itemVal: 0,
-         },
-         {
-         inventoryIndex: 1,
-         status: true,
-         itemVal: 1,
-         },
-         {
-         inventoryIndex: 2,
-         status: true,
-         itemVal: 2,
-         },
-         {
-         inventoryIndex: 3,
-         status: true,
-         itemVal: 3,
-         },
-         {
-         inventoryIndex: 4,
-         status: true,
-         itemVal: 4,
-         },
-         {
-         inventoryIndex: 5,
-         status: true,
-         itemVal: 5,
-         },
-         {
-         inventoryIndex: 6,
-         status: true,
-         itemVal: 6,
-         },
-         {
-         inventoryIndex: 7,
-         status: true,
-         itemVal: 7,
-         },
-         {
-         inventoryIndex: 8,
-         status: true,
-         itemVal: 8,
-         },
-         {
-         inventoryIndex: 9,
-         status: true,
-         itemVal: 9,
-         },
-         {
-         inventoryIndex: 10,
-         status: true,
-         itemVal: 10,
-         },
-         {
-         inventoryIndex: 11,
-         status: true,
-         itemVal: 11,
-         },
-         {
-         inventoryIndex: 12,
-         status: true,
-         itemVal: 12,
-         }*/
-    ];
+    public hero = {
+        dexterity: 0,
+        vitality: 0,
+        criticalChance: 0,
+        extraGold: 0,
+        criticalHit: 0,
+    };
+
+    constructor() {
+        this.itemList = itemList;
+    }
 
     getItemList() {
         this.itemList.map(element => {
@@ -152,70 +35,91 @@ export class ItemService {
     }
 
     getItemListCharacters() {
-        this.itemListCharacter.map(element => {
-            this.setCoordsCharacter(element);
-            return element;
-        });
         return this.itemListCharacter;
     }
 
-    /*addItem(item?) {
-     if (this.itemList.length < this.max) {
-     let inventoryIndex = -1;
-     for (let i = 0; i < this.itemList.length; i++) {
-     if (this.itemList[0].inventoryIndex != 0) {
-     inventoryIndex = 0;
-     break;
-     }
-     if (!this.itemList[i + 1] || this.itemList[i + 1].inventoryIndex - this.itemList[i].inventoryIndex > 1) {
-     inventoryIndex = i + 1;
-     break;
-     }
-     }
 
-     let element = {inventoryIndex: inventoryIndex};
-     this.itemList.push(element);
-
-     this.itemList.sort((a, b) => a.inventoryIndex < b.inventoryIndex ? -1 : 1);
-     }
-     }
-     */
-
-    element = {
-        inventoryIndex: 9,
-        status: false,
-        itemVal: 9,
-    };
-
-    addItem(item?) {
+    addItem(item) {
         if (this.itemList.length < this.max) {
-
             for (let i = 0; i < this.itemList.length; i++) {
-                let element;
                 if (this.itemList[i].inventoryIndex != i) {
-                    element = {inventoryIndex: i};
-                    this.itemList.splice(i, 0, element);
+                    this.addItemInventoryIndex(item, i);
                     break;
                 }
 
                 if (!this.itemList[i + 1]) {
-                    element = {inventoryIndex: i + 1};
-                    this.itemList.push(element);
+                    item.inventoryIndex = i + 1;
+                    this.setCoords(item);
+                    this.itemList.push(item);
                     break;
                 }
             }
         }
     }
 
+    addItemInventoryIndex(item, index) {
+        item.inventoryIndex = index;
+        this.setCoords(item);
+        this.itemList.splice(index, 0, item);
+    }
 
-    addItemCharacter(item) {
+    shiftItem(item) {
+        this.removeItem(item);
+
         if (item.status == false) {
-            item.status = true;
-            this.setCoordsCharacter(item);
-            this.itemListCharacter.push(item);
+            this.shiftItemToCharacter(item);
         } else {
-
+            this.shiftItemToInventory(item);
         }
+        this.calculateBonuses();
+    }
+
+    shiftItemToCharacter(item) {
+        const replace = this.itemListCharacter.find(element => {
+            if (item.itemVal === element.itemVal) {
+                return element;
+            }
+        });
+        if (replace) {
+            this.removeItem(replace);
+            replace.status = false;
+            this.setDefauleSize(replace);
+            this.addItemInventoryIndex(replace, item.inventoryIndex);
+        }
+
+        item.status = true;
+        this.itemListCharacter.push(item);
+    }
+
+    shiftItemToInventory(item) {
+        item.status = false;
+        this.setDefauleSize(item);
+        this.addItem(item);
+    }
+
+    swapItems(item1, item2) {
+        const temp = item1.inventoryIndex;
+        item1.inventoryIndex = item2.inventoryIndex;
+        item2.inventoryIndex = temp;
+
+        this.setCoords(item1);
+        this.setCoords(item2);
+    }
+
+    findItemIndex(index) {
+        return this.itemList.find(element => {
+            if (index === element.index) {
+                return element;
+            }
+        });
+    }
+
+    findItemInventoryIndex(inventoryIndex) {
+        return this.itemList.find(element => {
+            if (inventoryIndex === element.inventoryIndex) {
+                return element;
+            }
+        });
     }
 
     removeItem(item) {
@@ -227,58 +131,48 @@ export class ItemService {
     }
 
     setCoords(element) {
-        let x = Math.floor(element.inventoryIndex / this.numItem);
-        let y = Math.floor(element.inventoryIndex - (this.numItem * x));
+        const y = Math.floor(element.inventoryIndex / this.numItem);
+        const x = Math.floor(element.inventoryIndex - (this.numItem * y));
 
-        element.top = x * this.widthItem;
-        element.left = y * this.widthItem;
+        element.left = x * this.widthItem + 14 + x * 4;
+        element.top = y * this.heightItem + 12 + y * 4;
     }
 
-    setCoordsCharacter(element) {
-        if (element.itemVal == 0) {
-            element.top = 50;
-            element.left = 50;
-        } else if (element.itemVal == 1) {
-            element.top = 120;
-            element.left = 50;
-        } else if (element.itemVal == 2) {
-            element.top = 190;
-            element.left = 50;
-        } else if (element.itemVal == 3) {
-            element.top = 260;
-            element.left = 50;
-        }
+    setCoordsXY(element, x, y) {
+        if (!element.status) {
+            x = Math.ceil(x / 50);
+            y = Math.ceil(y / 60);
 
-        else if (element.itemVal == 4) {
-            element.top = 20;
-            element.left = 130;
-        } else if (element.itemVal == 5) {
-            element.top = 90;
-            element.left = 130;
-        } else if (element.itemVal == 6) {
-            element.top = 160;
-            element.left = 130;
-        } else if (element.itemVal == 7) {
-            element.top = 230;
-            element.left = 130;
-        } else if (element.itemVal == 8) {
-            element.top = 300;
-            element.left = 130;
+            const invId = Math.ceil((y - 1) * 10 + x) - 1;
+            const find = this.findItemInventoryIndex(invId);
 
-        } else if (element.itemVal == 9) {
-            element.top = 50;
-            element.left = 210;
-        } else if (element.itemVal == 10) {
-            element.top = 120;
-            element.left = 210;
-        } else if (element.itemVal == 11) {
-            element.top = 190;
-            element.left = 210;
-        } else if (element.itemVal == 12) {
-            element.top = 260;
-            element.left = 210;
+            if (find) {
+                this.swapItems(find, element);
+            } else {
+                element.inventoryIndex = invId;
+                this.setCoords(element);
+            }
         }
     }
 
+    setDefauleSize(item) {
+        item.width = this.widthItem;
+        item.height = this.heightItem;
+    }
 
+    calculateBonuses() {
+        this.hero.dexterity = 0;
+        this.hero.vitality = 0;
+        this.hero.criticalChance = 0;
+        this.hero.extraGold = 0;
+        this.hero.criticalHit = 0;
+
+        for (let item of this.itemListCharacter) {
+            this.hero.dexterity += item.bonuses.dexterity;
+            this.hero.vitality += item.bonuses.vitality;
+            this.hero.criticalChance += item.bonuses.criticalChance;
+            this.hero.extraGold += item.bonuses.extraGold;
+            this.hero.criticalHit += item.bonuses.criticalHit;
+        }
+    }
 }

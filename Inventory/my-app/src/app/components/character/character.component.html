@@ -1,3 +1,25 @@
-<div class="test" style="position:relative; width: 500px; height: 400px;">
+<div class="character">
+    <div class="bonuses">
+        GEAR BONUSES<br><br>
+        Dexterity: +{{hero.dexterity}}<br>
+        Vitality: +{{hero.vitality}}<br>
+        Critical Hit Chance Increased by: {{hero.criticalChance}}%<br>
+        Extra Gold from Monsters: {{hero.extraGold}}%<br>
+        Critical Hit Damage Increased by: {{hero.criticalHit}}%<br>
+    </div>
     <item *ngFor="let item of itemList" [item]="item"></item>
+
+    <div style="position:absolute; z-index: 0" class="item-0" (dragover)="onDragOver($event,0)" (drop)="onDrop($event,0)"></div>
+    <div style="position:absolute; " class="item-1" (dragover)="onDragOver($event,1)" (drop)="onDrop($event,1)"></div>
+    <div style="position:absolute; " class="item-2" (dragover)="onDragOver($event,2)" (drop)="onDrop($event,2)"></div>
+    <div style="position:absolute; " class="item-3" (dragover)="onDragOver($event,3)" (drop)="onDrop($event,3)"></div>
+    <div style="position:absolute; " class="item-4" (dragover)="onDragOver($event,4)" (drop)="onDrop($event,4)"></div>
+    <div style="position:absolute; " class="item-5" (dragover)="onDragOver($event,5)" (drop)="onDrop($event,5)"></div>
+    <div style="position:absolute; " class="item-6" (dragover)="onDragOver($event,6)" (drop)="onDrop($event,6)"></div>
+    <div style="position:absolute; " class="item-7" (dragover)="onDragOver($event,7)" (drop)="onDrop($event,7)"></div>
+    <div style="position:absolute; " class="item-8" (dragover)="onDragOver($event,8)" (drop)="onDrop($event,8)"></div>
+    <div style="position:absolute; " class="item-9" (dragover)="onDragOver($event,9)" (drop)="onDrop($event,9)"></div>
+    <div style="position:absolute; " class="item-10" (dragover)="onDragOver($event,10)" (drop)="onDrop($event,10)"></div>
+    <div style="position:absolute; " class="item-11" (dragover)="onDragOver($event,11)" (drop)="onDrop($event,11)"></div>
+    <div style="position:absolute; " class="item-12" (dragover)="onDragOver($event,12)" (drop)="onDrop($event,12)"></div>
 </div>

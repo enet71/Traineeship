@@ -1,3 +1,141 @@
-.test {
-  background-color: #542224;
+.character {
+  margin-top: 0px;
+  margin-left: 0px;
+  background-image: url("http://image.prntscr.com/image/1370bcf5c5f446069aee7395403650c5.png");
+  position: relative;
+  width: 610px;
+  height: 516px;
 }
+
+.bonuses {
+  padding-top: 300px;
+  padding-left: 20px;
+  color: #c8c8c8;
+}
+
+.valid {
+  background-color: #348a22;
+}
+
+.invalid {
+  background-color: rgba(147, 15, 18, 0.62);
+}
+
+.item-0 {
+  top: 126px;
+  left: 345px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -126px;
+  background-position-x: -346px;
+}
+
+.item-1 {
+  top: 225px;
+  left: 319px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -225px;
+  background-position-x: -320px;
+}
+
+.item-2 {
+  top: 325px;
+  left: 331px;
+  width: 40px;
+  height: 40px;
+  background-position-y: -325px;
+  background-position-x: -332px;
+}
+
+.item-3 {
+  top: 380px;
+  left: 319px;
+  width: 64px;
+  height: 128px;
+  background-position-y: -380px;
+  background-position-x: -320px;
+}
+
+.item-4 {
+  top: 102px;
+  left: 427px;
+  width: 64px;
+  height: 64px;
+  background-position-y: -102px;
+  background-position-x: -428px;
+}
+
+.item-5 {
+  top: 172px;
+  left: 419px;
+  width: 80px;
+  height: 113px;
+  background-position-y: -172px;
+  background-position-x: -420px;
+}
+
+.item-6 {
+  top: 291px;
+  left: 419px;
+  width: 80px;
+  height: 32px;
+  background-position-y: -291px;
+  background-position-x: -420px;
+}
+
+.item-7 {
+  top: 329px;
+  left: 427px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -329px;
+  background-position-x: -428px;
+}
+
+.item-8 {
+  top: 421px;
+  left: 427px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -421px;
+  background-position-x: -428px;
+}
+
+.item-9 {
+  top: 146px;
+  left: 511px;
+  width: 54px;
+  height: 54px;
+  background-position-y: -146px;
+  background-position-x: -512px;
+}
+
+.item-10 {
+  top: 225px;
+  left: 535px;
+  width: 64px;
+  height: 86px;
+  background-position-y: -225px;
+  background-position-x: -536px;
+}
+
+.item-11 {
+  top: 325px;
+  left: 547px;
+  width: 40px;
+  height: 40px;
+  background-position-y: -325px;
+  background-position-x: -548px;
+}
+
+.item-12 {
+  top: 380px;
+  left: 535px;
+  width: 64px;
+  height: 128px;
+  background-position-x: -536px;
+  background-position-y: -380px;
+}
+
+
