@@ -2,14 +2,5 @@
     <div  (dragstart)="onDragStart()" draggable="true" (click)="onRemove()" style="z-index:1; position:absolute; background-color: #348a22;"
          [ngClass]="item.status ?[item.itemClass,item.characterClass]:[item.itemMiniClass,item.inventoryClass]"
          [ngStyle]="!item.status ?{top: item.top + 'px',left:item.left + 'px',width: item.width + 'px', height: item.height + 'px'}:''">
-
-        <!--<span class="tooltiptext">
-        Dexterity: +{{item.bonuses.dexterity}}<br>
-        Vitality: +{{item.bonuses.vitality}}<br>
-        Critical Hit: {{item.bonuses.criticalChance}}%<br>
-        Extra Gold: {{item.bonuses.extraGold}}%<br>
-        Critical Hit: {{item.bonuses.criticalHit}}%<br>
-        </span>-->
-
     </div>
 </div>

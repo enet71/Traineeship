@@ -151,10 +151,6 @@ export class ItemService {
             } else {
                 this.removeItem(element);
                 this.addItemInventoryIndex(element,invId);
-
-                /*element.inventoryIndex = invId;
-                this.setCoords(element);
-                this.itemList.sort((a, b) => a.inventoryIndex < b.inventoryIndex ? -1 : 1);*/
             }
         }else{
             this.removeItem(element);
