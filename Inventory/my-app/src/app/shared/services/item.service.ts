@@ -149,9 +149,16 @@ export class ItemService {
             if (find) {
                 this.swapItems(find, element);
             } else {
-                element.inventoryIndex = invId;
+                this.removeItem(element);
+                this.addItemInventoryIndex(element,invId);
+
+                /*element.inventoryIndex = invId;
                 this.setCoords(element);
+                this.itemList.sort((a, b) => a.inventoryIndex < b.inventoryIndex ? -1 : 1);*/
             }
+        }else{
+            this.removeItem(element);
+            this.shiftItemToInventory(element);
         }
     }
 
