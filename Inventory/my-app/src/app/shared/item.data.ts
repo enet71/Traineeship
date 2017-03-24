@@ -4,8 +4,6 @@ export const itemList: any = [
         inventoryIndex: 0,
         status: false,
         itemVal: 0,
-        width: 43.5,
-        height: 53,
 
         bonuses: {
             dexterity: 315,
@@ -25,8 +23,6 @@ export const itemList: any = [
         inventoryIndex: 1,
         status: false,
         itemVal: 1,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 120,
@@ -44,8 +40,6 @@ export const itemList: any = [
         inventoryIndex: 2,
         status: false,
         itemVal: 2,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 330,
             vitality: 100,
@@ -64,8 +58,6 @@ export const itemList: any = [
         inventoryIndex: 3,
         status: false,
         itemVal: 3,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 220,
             vitality: 50,
@@ -83,8 +75,6 @@ export const itemList: any = [
         inventoryIndex: 4,
         status: false,
         itemVal: 4,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -103,8 +93,6 @@ export const itemList: any = [
         inventoryIndex: 5,
         status: false,
         itemVal: 5,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 340,
             vitality: 130,
@@ -123,8 +111,6 @@ export const itemList: any = [
         inventoryIndex: 6,
         status: false,
         itemVal: 6,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 200,
             vitality: 300,
@@ -143,8 +129,6 @@ export const itemList: any = [
         inventoryIndex: 7,
         status: false,
         itemVal: 7,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 100,
             vitality: 400,
@@ -163,8 +147,6 @@ export const itemList: any = [
         inventoryIndex: 8,
         status: false,
         itemVal: 8,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -183,8 +165,6 @@ export const itemList: any = [
         inventoryIndex: 9,
         status: false,
         itemVal: 9,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -203,8 +183,6 @@ export const itemList: any = [
         inventoryIndex: 10,
         status: false,
         itemVal: 10,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 245,
             vitality: 50,
@@ -223,8 +201,6 @@ export const itemList: any = [
         inventoryIndex: 11,
         status: false,
         itemVal: 11,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -243,8 +219,6 @@ export const itemList: any = [
         inventoryIndex: 12,
         status: false,
         itemVal: 12,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -263,8 +237,6 @@ export const itemList: any = [
         inventoryIndex: 13,
         status: false,
         itemVal: 1,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -282,8 +254,6 @@ export const itemList: any = [
         inventoryIndex: 14,
         status: false,
         itemVal: 8,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 300,
             vitality: 100,
@@ -302,8 +272,6 @@ export const itemList: any = [
         inventoryIndex: 18,
         status: false,
         itemVal: 10,
-        width: 43.5,
-        height: 53,
         bonuses: {
             dexterity: 410,
             vitality: 160,

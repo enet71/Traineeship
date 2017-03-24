@@ -13,6 +13,10 @@
 .tooltip:hover .tooltiptext {
   visibility: visible; }
 
+.item {
+  z-index: 1;
+  position: absolute; }
+
 .characterItemsDem {
   background: url("http://image.prntscr.com/image/a5a35afac1e449f893566580491f26db.png") no-repeat; }
 
@@ -128,6 +132,10 @@
   height: 128px;
   background-position-x: -536px;
   background-position-y: -380px; }
+
+.item-inventory, .item-inventory-0, .item-inventory-1, .item-inventory-2, .item-inventory-3, .item-inventory-4, .item-inventory-5, .item-inventory-6, .item-inventory-7, .item-inventory-8, .item-inventory-9, .item-inventory-10, .item-inventory-11, .item-inventory-12, .item-inventory-13, .item-inventory-14, .item-inventory-15 {
+  width: 43.5px;
+  height: 53px; }
 
 .item-inventory-0 {
   background-position-x: -176px;

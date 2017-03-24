@@ -7,10 +7,10 @@ export class ItemService {
     public dragItemIndex;
     public dragItem;
 
-    private numItem:number = 10;
-    private widthItem:number = 43.5;
-    private heightItem:number = 53;
-    private max:number = 60;
+    private numItem: number = 10;
+    private widthItem: number = 43.5;
+    private heightItem: number = 53;
+    private max: number = 60;
     private itemListCharacter: any = [];
     private itemList = [];
 
@@ -40,6 +40,7 @@ export class ItemService {
 
 
     addItem(item) {
+        this.itemList.sort((a, b) => a.inventoryIndex < b.inventoryIndex ? -1 : 1);
         if (this.itemList.length < this.max) {
             for (let i = 0; i < this.itemList.length; i++) {
                 if (this.itemList[i].inventoryIndex != i) {
@@ -71,7 +72,6 @@ export class ItemService {
         } else {
             this.shiftItemToInventory(item);
         }
-        this.calculateBonuses();
     }
 
     shiftItemToCharacter(item) {
@@ -89,21 +89,27 @@ export class ItemService {
 
         item.status = true;
         this.itemListCharacter.push(item);
+        this.calculateBonuses();
     }
 
     shiftItemToInventory(item) {
         item.status = false;
         this.setDefauleSize(item);
         this.addItem(item);
+        this.calculateBonuses();
     }
 
     swapItems(item1, item2) {
-        const temp = item1.inventoryIndex;
-        item1.inventoryIndex = item2.inventoryIndex;
-        item2.inventoryIndex = temp;
+        if(item1 !== item2){
+            const index1 = item1.inventoryIndex;
+            const index2 = item2.inventoryIndex;
 
-        this.setCoords(item1);
-        this.setCoords(item2);
+            this.removeItem(item1);
+            this.removeItem(item2);
+
+            this.addItemInventoryIndex(item1, index2);
+            this.addItemInventoryIndex(item2, index1);
+        }
     }
 
     findItemIndex(index) {
@@ -124,9 +130,13 @@ export class ItemService {
 
     removeItem(item) {
         if (item.status == false) {
-            this.itemList.splice(this.itemList.indexOf(item), 1);
+            if (this.itemList.indexOf(item) != -1) {
+                this.itemList.splice(this.itemList.indexOf(item), 1);
+            }
         } else {
-            this.itemListCharacter.splice(this.itemListCharacter.indexOf(item), 1);
+            if (this.itemListCharacter.indexOf(item) != -1) {
+                this.itemListCharacter.splice(this.itemListCharacter.indexOf(item), 1);
+            }
         }
     }
 
@@ -146,13 +156,14 @@ export class ItemService {
             const invId = Math.ceil((y - 1) * 10 + x) - 1;
             const find = this.findItemInventoryIndex(invId);
 
+
             if (find) {
                 this.swapItems(find, element);
             } else {
                 this.removeItem(element);
-                this.addItemInventoryIndex(element,invId);
+                this.addItemInventoryIndex(element, invId);
             }
-        }else{
+        } else {
             this.removeItem(element);
             this.shiftItemToInventory(element);
         }
