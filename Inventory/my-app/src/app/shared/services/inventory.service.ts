@@ -6,7 +6,7 @@ export class InventoryService {
     private numItem: number = 10;
     private widthItem: number = 43.5;
     private heightItem: number = 53;
-    private max: number = 60;
+    private max: number = 100;
     private itemListCharacter: any = [];
     private itemList = [];
 
@@ -29,6 +29,12 @@ export class InventoryService {
                     this.itemList.push(item);
                     break;
                 }
+            }
+
+            if (this.itemList.length == 0) {
+                item.inventoryIndex = 0;
+                this.setCoords(item);
+                this.itemList.push(item);
             }
         }
     }

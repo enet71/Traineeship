@@ -31,4 +31,6 @@ export class HeroService {
     getItemListCharacter() {
         return this.itemListCharacter;
     }
+
+
 }

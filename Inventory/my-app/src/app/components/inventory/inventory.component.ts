@@ -20,6 +20,8 @@ export class InventoryComponent {
         const x = ev.pageX - this.inventory.nativeElement.offsetLeft;
         const y = ev.pageY - this.inventory.nativeElement.offsetTop;
         this.itemService.setCoordsXY(this.itemService.dragItem,x,y);
+
+        this.itemService.drag.isDragged = false;
     }
 
     onDragOver(ev) {

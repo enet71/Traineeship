@@ -4,14 +4,18 @@ import {InventoryService} from "./inventory.service";
 
 @Injectable()
 export class ItemService {
-    public dragItemVal;
-    public dragItemIndex;
     public dragItem;
+    public drag = {
+        isDragged: false,
+        zIndex: 0,
+        itemVal: -1
+    };
 
     private itemListCharacter: any = [];
     private itemList = [];
 
-    constructor(private heroService:HeroService,private inventoryService:InventoryService) {
+
+    constructor(private heroService: HeroService, private inventoryService: InventoryService) {
         this.itemList = inventoryService.getItemList();
         this.itemListCharacter = heroService.getItemListCharacter();
     }
@@ -26,7 +30,6 @@ export class ItemService {
 
     shiftItem(item) {
         this.removeItem(item);
-
         if (item.status == false) {
             this.shiftItemToCharacter(item);
         } else {
@@ -34,27 +37,95 @@ export class ItemService {
         }
     }
 
+    shiftItemToAnotherPlace(dragItem, item) {
+        let replace = this.getItemByValue(item.value);
+        if (replace) {
+            replace.itemValue = dragItem.itemValue;
+            replace.characterCoordsClass = dragItem.characterCoordsClass;
+        }
+        dragItem.itemValue = item.value;
+        dragItem.characterCoordsClass = item.characterCoords;
+    }
+
     shiftItemToCharacter(item) {
-        const replace = this.itemListCharacter.find(element => {
-            if (item.itemVal === element.itemVal) {
-                return element;
-            }
-        });
+        const replace = this.getItemByValue(item.itemValue);
         if (replace) {
             this.removeItem(replace);
+            this.removeFillItems(replace);
             replace.status = false;
             this.inventoryService.addItemInventoryIndex(replace, item.inventoryIndex);
         }
 
-        item.status = true;
-        this.itemListCharacter.push(item);
+        if (item.fill) {
+            this.shiftFillItemToCharacter(item);
+        } else {
+            item.status = true;
+            this.itemListCharacter.push(item);
+        }
         this.heroService.calculateBonuses();
     }
 
+    shiftFillItemToCharacter(item) {
+        let added: boolean = false;
+        for (let element of item.itemValues) {
+            const clone = this.createItemClone(item, element, added);
+            const replace = this.getItemByValue(clone.itemValue);
+
+            if (replace) {
+                this.removeItem(replace);
+                this.shiftItemToInventory(replace);
+            }
+
+            this.itemListCharacter.push(clone);
+            added = true;
+        }
+    }
+
+    getItemByValue(itemValue) {
+        let result;
+        this.itemListCharacter.find(element => {
+            if (itemValue === element.itemValue) {
+                result = element;
+            }
+        });
+        return result;
+    }
+
+    createItemClone(item, itemValues, bonuses) {
+        let clone = Object.assign({}, item);
+        clone.characterCoordsClass = itemValues.characterCoords;
+        clone.itemValue = itemValues.value;
+        clone.status = true;
+        if (bonuses) {
+            clone.bonuses = {
+                dexterity: 0,
+                vitality: 0,
+                criticalChance: 0,
+                extraGold: 0,
+                criticalHit: 0,
+            };
+        }
+        return clone;
+    }
+
     shiftItemToInventory(item) {
+        this.removeFillItems(item);
         item.status = false;
         this.inventoryService.addItem(item);
         this.heroService.calculateBonuses();
+    }
+
+    removeFillItems(item) {
+        if (item.fill) {
+            const length = this.itemListCharacter.length;
+            for (let i = length - 1; i >= 0; i--) {
+                console.log("Test");
+                if (this.itemListCharacter[i].index == item.index) {
+                    this.removeItem(this.itemListCharacter[i]);
+                }
+
+            }
+        }
     }
 
     removeItem(item) {

@@ -1,6 +1,7 @@
-<div class="characterItems tooltip" >
-    <div  (dragstart)="onDragStart()" draggable="true" (click)="onRemove()" class="item"
-         [ngClass]="item.status ?[item.itemClass,item.characterClass]:[item.itemMiniClass,item.inventoryClass]"
-         [ngStyle]="!item.status ?{top: item.top + 'px',left:item.left + 'px',width: item.width + 'px', height: item.height + 'px'}:''">
+<div class="characterItems">
+    <div draggable="true" class="item tooltip"
+         (dragend)="onDragEnd()" (dragstart)="onDragStart()" (click)="onRemove()"
+         [ngClass]="getClass()" [ngStyle]="getStyle()">
     </div>
+
 </div>
