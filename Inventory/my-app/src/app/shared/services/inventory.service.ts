@@ -77,4 +77,23 @@ export class InventoryService {
         });
         return this.itemList;
     }
+
+    removeItem(item){
+        if (this.itemList.indexOf(item) != -1) {
+            this.itemList.splice(this.itemList.indexOf(item), 1);
+        }
+    }
+
+    swapItems(item1, item2) {
+        if (item1 !== item2) {
+            const index1 = item1.inventoryIndex;
+            const index2 = item2.inventoryIndex;
+
+            this.removeItem(item1);
+            this.removeItem(item2);
+
+            this.addItemInventoryIndex(item1, index2);
+            this.addItemInventoryIndex(item2, index1);
+        }
+    }
 }

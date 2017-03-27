@@ -8,7 +8,7 @@ import {InventoryComponent} from "./components/inventory/inventory.component";
 import {ItemService} from "./shared/services/item.service";
 import {ItemComponent} from "./components/item/item.component";
 import {CharacterComponent} from "./components/character/character.component";
-import {HeroService} from "./shared/services/hero.service";
+import {CharacterService} from "./shared/services/character.service";
 import {InventoryService} from "./shared/services/inventory.service";
 
 @NgModule({
@@ -24,7 +24,7 @@ import {InventoryService} from "./shared/services/inventory.service";
         HttpModule
     ],
     providers: [
-        ItemService, HeroService, InventoryService
+        ItemService, CharacterService, InventoryService
     ],
     bootstrap: [AppComponent]
 })

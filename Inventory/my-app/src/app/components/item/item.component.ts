@@ -16,7 +16,7 @@ export class ItemComponent {
     }
 
     onRemove() {
-        this.itemService.shiftItem(this.item);
+        this.itemService.toggleItem(this.item);
     }
 
     onDragStart() {

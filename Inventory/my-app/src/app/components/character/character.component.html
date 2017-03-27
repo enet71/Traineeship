@@ -1,11 +1,11 @@
 <div class="character">
     <div class="bonuses">
         GEAR BONUSES<br><br>
-        Dexterity: +{{hero.dexterity}}<br>
-        Vitality: +{{hero.vitality}}<br>
-        Critical Hit Chance Increased by: {{hero.criticalChance}}%<br>
-        Extra Gold from Monsters: {{hero.extraGold}}%<br>
-        Critical Hit Damage Increased by: {{hero.criticalHit}}%<br>
+        Dexterity: +{{character.dexterity}}<br>
+        Vitality: +{{character.vitality}}<br>
+        Critical Hit Chance Increased by: {{character.criticalChance}}%<br>
+        Extra Gold from Monsters: {{character.extraGold}}%<br>
+        Critical Hit Damage Increased by: {{character.criticalHit}}%<br>
     </div>
     <item *ngFor="let item of itemList" [item]="item"></item>
     <div

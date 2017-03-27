@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {ItemService} from "../../shared/services/item.service";
-import {HeroService} from "../../shared/services/hero.service";
+import {CharacterService} from "../../shared/services/character.service";
 import {itemValueList} from "../../shared/item.data";
 
 @Component({
@@ -11,13 +11,13 @@ import {itemValueList} from "../../shared/item.data";
 
 export class CharacterComponent {
     private itemList = [];
-    private hero = {};
+    private character = {};
     private itemValueList = [];
     private drag;
 
-    constructor(private itemService: ItemService, private heroService: HeroService) {
-        this.itemList = heroService.getItemListCharacter();
-        this.hero = heroService.hero;
+    constructor(private itemService: ItemService, private characterService: CharacterService) {
+        this.itemList = characterService.getItemListCharacter();
+        this.character = characterService.character;
         this.itemValueList = itemValueList;
         this.drag = itemService.drag;
     }
@@ -38,11 +38,11 @@ export class CharacterComponent {
                 ev.preventDefault();
 
                 if (this.itemService.dragItem.status) {
-                    this.itemService.shiftItemToAnotherPlace(this.itemService.dragItem,item);
+                    this.itemService.moveItemToAnotherPlace(this.itemService.dragItem,item);
                 } else {
                     this.itemService.dragItem.characterCoordsClass = item.characterCoords;
                     this.itemService.dragItem.itemValue = item.value;
-                    this.itemService.shiftItem(this.itemService.dragItem);
+                    this.itemService.toggleItem(this.itemService.dragItem);
                 }
             }
         }

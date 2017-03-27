@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HeroService} from "./hero.service";
+import {CharacterService} from "./character.service";
 import {InventoryService} from "./inventory.service";
 
 @Injectable()
@@ -15,9 +15,9 @@ export class ItemService {
     private itemList = [];
 
 
-    constructor(private heroService: HeroService, private inventoryService: InventoryService) {
+    constructor(private characterService: CharacterService, private inventoryService: InventoryService) {
         this.itemList = inventoryService.getItemList();
-        this.itemListCharacter = heroService.getItemListCharacter();
+        this.itemListCharacter = characterService.getItemListCharacter();
     }
 
     getItemList() {
@@ -28,16 +28,16 @@ export class ItemService {
         return this.itemListCharacter;
     }
 
-    shiftItem(item) {
+    toggleItem(item) {
         this.removeItem(item);
         if (item.status == false) {
-            this.shiftItemToCharacter(item);
+            this.moveItemToCharacter(item);
         } else {
-            this.shiftItemToInventory(item);
+            this.moveItemToInventory(item);
         }
     }
 
-    shiftItemToAnotherPlace(dragItem, item) {
+    moveItemToAnotherPlace(dragItem, item) {
         let replace = this.getItemByValue(item.value);
         if (replace) {
             replace.itemValue = dragItem.itemValue;
@@ -47,25 +47,25 @@ export class ItemService {
         dragItem.characterCoordsClass = item.characterCoords;
     }
 
-    shiftItemToCharacter(item) {
+    moveItemToCharacter(item) {
         const replace = this.getItemByValue(item.itemValue);
         if (replace) {
             this.removeItem(replace);
-            this.removeFillItems(replace);
+            this.characterService.removeFillItems(replace);
             replace.status = false;
             this.inventoryService.addItemInventoryIndex(replace, item.inventoryIndex);
         }
 
         if (item.fill) {
-            this.shiftFillItemToCharacter(item);
+            this.moveFillItemToCharacter(item);
         } else {
             item.status = true;
             this.itemListCharacter.push(item);
         }
-        this.heroService.calculateBonuses();
+        this.characterService.calculateBonuses();
     }
 
-    shiftFillItemToCharacter(item) {
+    moveFillItemToCharacter(item) {
         let added: boolean = false;
         for (let element of item.itemValues) {
             const clone = this.createItemClone(item, element, added);
@@ -73,12 +73,19 @@ export class ItemService {
 
             if (replace) {
                 this.removeItem(replace);
-                this.shiftItemToInventory(replace);
+                this.moveItemToInventory(replace);
             }
 
             this.itemListCharacter.push(clone);
             added = true;
         }
+    }
+
+    moveItemToInventory(item) {
+        this.characterService.removeFillItems(item);
+        item.status = false;
+        this.inventoryService.addItem(item);
+        this.characterService.calculateBonuses();
     }
 
     getItemByValue(itemValue) {
@@ -91,7 +98,7 @@ export class ItemService {
         return result;
     }
 
-    createItemClone(item, itemValues, bonuses) {
+    createItemClone(item, itemValues, bonuses: boolean) {
         let clone = Object.assign({}, item);
         clone.characterCoordsClass = itemValues.characterCoords;
         clone.itemValue = itemValues.value;
@@ -108,38 +115,6 @@ export class ItemService {
         return clone;
     }
 
-    shiftItemToInventory(item) {
-        this.removeFillItems(item);
-        item.status = false;
-        this.inventoryService.addItem(item);
-        this.heroService.calculateBonuses();
-    }
-
-    removeFillItems(item) {
-        if (item.fill) {
-            const length = this.itemListCharacter.length;
-            for (let i = length - 1; i >= 0; i--) {
-                console.log("Test");
-                if (this.itemListCharacter[i].index == item.index) {
-                    this.removeItem(this.itemListCharacter[i]);
-                }
-
-            }
-        }
-    }
-
-    removeItem(item) {
-        if (item.status == false) {
-            if (this.itemList.indexOf(item) != -1) {
-                this.itemList.splice(this.itemList.indexOf(item), 1);
-            }
-        } else {
-            if (this.itemListCharacter.indexOf(item) != -1) {
-                this.itemListCharacter.splice(this.itemListCharacter.indexOf(item), 1);
-            }
-        }
-    }
-
     setCoordsXY(element, x, y) {
         if (!element.status) {
             x = Math.ceil(x / 50);
@@ -149,28 +124,24 @@ export class ItemService {
             const find = this.inventoryService.findItemInventoryIndex(invId);
 
             if (find) {
-                this.swapItems(find, element);
+                this.inventoryService.swapItems(find, element);
             } else {
                 this.removeItem(element);
                 this.inventoryService.addItemInventoryIndex(element, invId);
             }
         } else {
             this.removeItem(element);
-            this.shiftItemToInventory(element);
+            this.moveItemToInventory(element);
         }
     }
 
 
-    swapItems(item1, item2) {
-        if (item1 !== item2) {
-            const index1 = item1.inventoryIndex;
-            const index2 = item2.inventoryIndex;
 
-            this.removeItem(item1);
-            this.removeItem(item2);
-
-            this.inventoryService.addItemInventoryIndex(item1, index2);
-            this.inventoryService.addItemInventoryIndex(item2, index1);
+    removeItem(item) {
+        if (item.status == false) {
+            this.inventoryService.removeItem(item);
+        } else {
+            this.characterService.removeItem(item);
         }
     }
 }
