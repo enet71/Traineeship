@@ -20,10 +20,10 @@ export class ItemComponent {
     }
 
     onDragStart() {
-        let timer = Observable.timer(10);
-        timer.subscribe(()=>{
+        setTimeout(() => {
             this.drag.isDragged = true;
-        });
+        }, 10);
+
         this.itemService.dragItem = this.item;
     }
 
@@ -50,7 +50,7 @@ export class ItemComponent {
         }
 
         res["z-index"] = 20;
-        if(this.itemService.drag.isDragged){
+        if (this.itemService.drag.isDragged) {
             res["z-index"] = 1;
         }
 

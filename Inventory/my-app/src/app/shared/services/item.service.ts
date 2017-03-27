@@ -136,7 +136,6 @@ export class ItemService {
     }
 
 
-
     removeItem(item) {
         if (item.status == false) {
             this.inventoryService.removeItem(item);
