@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import {StaticMethods} from "../classes/static-methods";
 
 @Injectable()
 export class CharacterService {
@@ -32,6 +33,10 @@ export class CharacterService {
         return this.itemListCharacter;
     }
 
+    setItemListCharacter(itemList){
+        StaticMethods.clearPushArray(this.itemListCharacter,itemList);
+    }
+
     removeItem(item) {
         if (this.itemListCharacter.indexOf(item) != -1) {
             this.itemListCharacter.splice(this.itemListCharacter.indexOf(item), 1);
@@ -47,5 +52,9 @@ export class CharacterService {
                 }
             }
         }
+    }
+
+    clearList(){
+        this.itemListCharacter.splice(0);
     }
 }

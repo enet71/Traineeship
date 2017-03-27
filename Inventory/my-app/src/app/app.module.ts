@@ -10,21 +10,30 @@ import {ItemComponent} from "./components/item/item.component";
 import {CharacterComponent} from "./components/character/character.component";
 import {CharacterService} from "./shared/services/character.service";
 import {InventoryService} from "./shared/services/inventory.service";
+import {CharacterListComponent} from "./components/character-list/character-list.component";
+import {UserCreateComponent} from "./components/user-create/user-create.component";
+import {ItemInterfaceComponent} from "./components/item-interface/item-interface.component";
+import {AppRoutingModule} from "./app.routing.module";
+import {UserService} from "./shared/services/user.service";
 
 @NgModule({
     declarations: [
         AppComponent,
         InventoryComponent,
         ItemComponent,
-        CharacterComponent
+        CharacterComponent,
+        CharacterListComponent,
+        UserCreateComponent,
+        ItemInterfaceComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        AppRoutingModule
     ],
     providers: [
-        ItemService, CharacterService, InventoryService
+        ItemService, CharacterService, InventoryService, UserService
     ],
     bootstrap: [AppComponent]
 })

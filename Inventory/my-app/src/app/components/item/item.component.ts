@@ -43,15 +43,15 @@ export class ItemComponent {
         let res = {};
 
         if (!this.item.status) {
-            res["top"] = this.item.top + 'px';
-            res["left"] = this.item.left + 'px';
-            res["width"] = this.item.width + 'px';
-            res["height"] = this.item.height + 'px';
+            res['top'] = this.item.top + 'px';
+            res['left'] = this.item.left + 'px';
+            res['width'] = this.item.width + 'px';
+            res['height'] = this.item.height + 'px';
         }
 
-        res["z-index"] = 20;
+        res['z-index'] = 20;
         if (this.itemService.drag.isDragged) {
-            res["z-index"] = 1;
+            res['z-index'] = 1;
         }
 
         return res;

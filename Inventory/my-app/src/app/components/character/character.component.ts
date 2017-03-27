@@ -51,15 +51,15 @@ export class CharacterComponent {
     getStyle(item) {
         let res = {};
         if (this.drag.isDragged) {
-            res["background-color"] = "rgba(147, 15, 18, 0.36)";
+            res['background-color'] = 'rgba(147, 15, 18, 0.36)';
             for (let element of this.itemService.dragItem.itemValues) {
                 if (item === element.value) {
-                    res["background-color"] = "rgba(52, 138, 34, 0.36)";
+                    res['background-color'] = 'rgba(52, 138, 34, 0.36)';
                 }
             }
-            res["display"] = "block";
+            res['display'] = 'block';
         }else {
-            res["display"] = "none";
+            res['display'] = 'none';
         }
 
         return res;

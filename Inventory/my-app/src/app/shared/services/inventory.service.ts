@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
-import {itemList} from "../item.data";
+import {itemList, DataList} from "../item.data";
+import {StaticMethods} from "../classes/static-methods";
+import {Data} from "@angular/router";
 
 @Injectable()
 export class InventoryService {
@@ -11,7 +13,12 @@ export class InventoryService {
     private itemList = [];
 
     constructor() {
-        this.itemList = itemList;
+        this.itemList = DataList.getItemList();
+    }
+
+    reloadList() {
+        DataList.reloadList();
+        StaticMethods.clearPushArray(this.itemList, DataList.getItemList());
     }
 
     addItem(item) {
@@ -78,7 +85,7 @@ export class InventoryService {
         return this.itemList;
     }
 
-    removeItem(item){
+    removeItem(item) {
         if (this.itemList.indexOf(item) != -1) {
             this.itemList.splice(this.itemList.indexOf(item), 1);
         }

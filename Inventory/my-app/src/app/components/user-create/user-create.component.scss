@@ -1,0 +1,44 @@
+.user-create{
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  background-color: rgba(14, 14, 14, 0.81);
+  color: white;
+  border: 1px solid #363636;
+  border-radius: 4px;
+  top: 50%;
+  left: 50%;
+
+  width: 300px;
+
+  margin:{
+    top: -50px;
+    left: -150px;
+  }
+
+  .player{
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .enter-panel{
+    font-size: 20px;
+    padding:{
+      top: 10px;
+    };
+
+    span{
+      cursor: pointer;
+      &:hover{
+        color: #cecece;
+        text-decoration: underline;
+      }
+    }
+  }
+
+
+
+  input{
+    width: 290px;
+  }
+}
