@@ -2,7 +2,7 @@ import {Component} from "@angular/core";
 import {CharacterService} from "../../shared/services/character.service";
 import {StaticMethods} from "../../shared/classes/static-methods";
 import {UserService} from "../../shared/services/user.service";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {InventoryService} from "../../shared/services/inventory.service";
 
 @Component({
@@ -12,27 +12,55 @@ import {InventoryService} from "../../shared/services/inventory.service";
 })
 
 export class CharacterListComponent {
-    currentList = [];
-    lists = [[], [], []];
+    private currentList = [];
+    private lists = [[], [], []];
+    private selectItem: number = 0;
+    private user;
+    playerName;
 
     constructor(private characterService: CharacterService,
                 private userService: UserService,
                 private router: Router,
-                private inventoryService: InventoryService) {
+                private inventoryService: InventoryService,
+                private route: ActivatedRoute) {
         this.currentList = this.lists[0];
+        this.route.params.subscribe(parameter => {
+            this.user = this.userService.getUserById(parameter['id']);
+            this.playerName = this.user.getName();
+        });
     }
 
     swapList(list) {
         StaticMethods.clearPushArray(this.currentList, this.characterService.getItemListCharacter());
         this.currentList = list;
         this.characterService.setItemListCharacter(list);
+        this.characterService.calculateBonuses();
     }
 
     onStart() {
+        StaticMethods.clearPushArray(this.currentList, this.characterService.getItemListCharacter());
+        this.user.setCharacterList(this.lists);
+
+        this.inventoryService.reloadList();
+        this.characterService.clearList();
+
         if (this.userService.hasNext()) {
-            this.inventoryService.reloadList();
-            this.characterService.clearList();
             this.router.navigate(['createUser']);
+        } else {
+            this.router.navigate(['versus-table']);
         }
+        this.characterService.calculateBonuses();
+    }
+
+    setSelectItem(index) {
+        this.selectItem = index;
+    }
+
+    getItemStyle(index) {
+        let res = {};
+        if (index === this.selectItem) {
+            res['text-decoration'] = 'underline';
+        }
+        return res;
     }
 }

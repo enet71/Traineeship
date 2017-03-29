@@ -15,6 +15,8 @@ import {UserCreateComponent} from "./components/user-create/user-create.componen
 import {ItemInterfaceComponent} from "./components/item-interface/item-interface.component";
 import {AppRoutingModule} from "./app.routing.module";
 import {UserService} from "./shared/services/user.service";
+import {VersusTableComponent} from "./components/versus-table/versus-table.component";
+import {MenuComponent} from "./components/menu/menu.component";
 
 @NgModule({
     declarations: [
@@ -24,7 +26,9 @@ import {UserService} from "./shared/services/user.service";
         CharacterComponent,
         CharacterListComponent,
         UserCreateComponent,
-        ItemInterfaceComponent
+        ItemInterfaceComponent,
+        VersusTableComponent,
+        MenuComponent
     ],
     imports: [
         BrowserModule,

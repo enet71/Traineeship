@@ -1,5 +1,95 @@
+.shoulders {
+  top: 126px;
+  left: 346px;
+  width: 64px;
+  height: 86px; }
+
+.hands {
+  top: 225px;
+  left: 320px;
+  width: 64px;
+  height: 86px; }
+
+.finger-left {
+  top: 325px;
+  left: 332px;
+  width: 40px;
+  height: 40px; }
+
+.hand-left {
+  top: 380px;
+  left: 320px;
+  width: 64px;
+  height: 128px; }
+
+.head {
+  top: 102px;
+  left: 428px;
+  width: 64px;
+  height: 64px; }
+
+.torso {
+  top: 172px;
+  left: 420px;
+  width: 80px;
+  height: 113px; }
+
+.waist {
+  top: 291px;
+  left: 420px;
+  width: 80px;
+  height: 32px; }
+
+.legs {
+  top: 329px;
+  left: 428px;
+  width: 64px;
+  height: 86px; }
+
+.feet {
+  top: 421px;
+  left: 428px;
+  width: 64px;
+  height: 86px; }
+
+.neck {
+  top: 146px;
+  left: 512px;
+  width: 54px;
+  height: 54px; }
+
+.bracers {
+  top: 225px;
+  left: 536px;
+  width: 64px;
+  height: 86px; }
+
+.finger-right {
+  top: 325px;
+  left: 548px;
+  width: 40px;
+  height: 40px; }
+
+.hand-right {
+  top: 380px;
+  left: 536px;
+  width: 64px;
+  height: 128px; }
+
+.player {
+  overflow: hidden;
+  position: absolute;
+  width: 265px;
+  height: 50px;
+  right: 20px;
+  top: 12px;
+  font-size: 35px;
+  line-height: 1.5;
+  color: white;
+  text-align: center;
+  text-transform: uppercase; }
+
 .character {
-  background-image: url("http://image.prntscr.com/image/1370bcf5c5f446069aee7395403650c5.png");
   position: relative;
   width: 610px;
   height: 516px; }
@@ -7,9 +97,9 @@
 .bonuses {
   text-align: left;
   position: absolute;
-  top: 300px;
+  top: 280px;
   left: 20px;
-  color: #c8c8c8; }
+  color: #ebebeb; }
 
 .cell {
   z-index: 11;
@@ -20,83 +110,5 @@
 
 .invalid {
   background-color: rgba(147, 15, 18, 0.46); }
-
-.shoulders {
-  top: 126px;
-  left: 345px;
-  width: 64px;
-  height: 86px; }
-
-.hands {
-  top: 225px;
-  left: 319px;
-  width: 64px;
-  height: 86px; }
-
-.finger-left {
-  top: 325px;
-  left: 331px;
-  width: 40px;
-  height: 40px; }
-
-.hand-left {
-  top: 380px;
-  left: 319px;
-  width: 64px;
-  height: 128px; }
-
-.head {
-  top: 102px;
-  left: 427px;
-  width: 64px;
-  height: 64px; }
-
-.torso {
-  top: 172px;
-  left: 419px;
-  width: 80px;
-  height: 113px; }
-
-.waist {
-  top: 291px;
-  left: 419px;
-  width: 80px;
-  height: 32px; }
-
-.legs {
-  top: 329px;
-  left: 427px;
-  width: 64px;
-  height: 86px; }
-
-.feet {
-  top: 421px;
-  left: 427px;
-  width: 64px;
-  height: 86px; }
-
-.neck {
-  top: 146px;
-  left: 511px;
-  width: 54px;
-  height: 54px; }
-
-.bracers {
-  top: 225px;
-  left: 535px;
-  width: 64px;
-  height: 86px; }
-
-.finger-right {
-  top: 325px;
-  left: 547px;
-  width: 40px;
-  height: 40px; }
-
-.hand-right {
-  top: 380px;
-  left: 535px;
-  width: 64px;
-  height: 128px; }
 
 /*# sourceMappingURL=character.component.css.map */

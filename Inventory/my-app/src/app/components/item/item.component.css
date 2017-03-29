@@ -1,3 +1,81 @@
+.shoulders {
+  top: 126px;
+  left: 346px;
+  width: 64px;
+  height: 86px; }
+
+.hands {
+  top: 225px;
+  left: 320px;
+  width: 64px;
+  height: 86px; }
+
+.finger-left {
+  top: 325px;
+  left: 332px;
+  width: 40px;
+  height: 40px; }
+
+.hand-left {
+  top: 380px;
+  left: 320px;
+  width: 64px;
+  height: 128px; }
+
+.head {
+  top: 102px;
+  left: 428px;
+  width: 64px;
+  height: 64px; }
+
+.torso {
+  top: 172px;
+  left: 420px;
+  width: 80px;
+  height: 113px; }
+
+.waist {
+  top: 291px;
+  left: 420px;
+  width: 80px;
+  height: 32px; }
+
+.legs {
+  top: 329px;
+  left: 428px;
+  width: 64px;
+  height: 86px; }
+
+.feet {
+  top: 421px;
+  left: 428px;
+  width: 64px;
+  height: 86px; }
+
+.neck {
+  top: 146px;
+  left: 512px;
+  width: 54px;
+  height: 54px; }
+
+.bracers {
+  top: 225px;
+  left: 536px;
+  width: 64px;
+  height: 86px; }
+
+.finger-right {
+  top: 325px;
+  left: 548px;
+  width: 40px;
+  height: 40px; }
+
+.hand-right {
+  top: 380px;
+  left: 536px;
+  width: 64px;
+  height: 128px; }
+
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 120px;
@@ -31,133 +109,55 @@
 .inventoryItems {
   float: left; }
 
-.item-0 {
-  top: 126px;
-  left: 345px;
-  width: 64px;
-  height: 86px; }
-
-.item-0-img {
+.shoulders-img {
   background-position-y: -126px;
   background-position-x: -346px; }
 
-.item-1 {
-  top: 225px;
-  left: 319px;
-  width: 64px;
-  height: 86px; }
-
-.item-1-img {
+.hands-img {
   background-position-y: -225px;
   background-position-x: -320px; }
 
-.item-2 {
-  top: 325px;
-  left: 331px;
-  width: 40px;
-  height: 40px; }
-
-.item-2-img {
+.finger-left-img {
   background-position-y: -325px;
   background-position-x: -332px; }
 
-.item-3 {
-  top: 380px;
-  left: 319px;
-  width: 64px;
-  height: 128px; }
-
-.item-3-img {
+.hand-left-img {
   background-position-y: -380px;
   background-position-x: -320px; }
 
-.item-4 {
-  top: 102px;
-  left: 427px;
-  width: 64px;
-  height: 64px; }
-
-.item-4-img {
+.head-img {
   background-position-y: -102px;
   background-position-x: -428px; }
 
-.item-5 {
-  top: 172px;
-  left: 419px;
-  width: 80px;
-  height: 113px; }
-
-.item-5-img {
+.torso-img {
   background-position-y: -172px;
   background-position-x: -420px; }
 
-.item-6 {
-  top: 291px;
-  left: 419px;
-  width: 80px;
-  height: 32px; }
-
-.item-6-img {
+.waist-img {
   background-position-y: -291px;
   background-position-x: -420px; }
 
-.item-7 {
-  top: 329px;
-  left: 427px;
-  width: 64px;
-  height: 86px; }
-
-.item-7-img {
+.legs-img {
   background-position-y: -329px;
   background-position-x: -428px; }
 
-.item-8 {
-  top: 421px;
-  left: 427px;
-  width: 64px;
-  height: 86px; }
-
-.item-8-img {
+.feet-img {
   background-position-y: -421px;
   background-position-x: -428px; }
 
-.item-9 {
-  top: 146px;
-  left: 511px;
-  width: 54px;
-  height: 54px; }
-
-.item-9-img {
+.neck-img {
   background-position-y: -146px;
   background-position-x: -512px; }
 
-.item-10 {
-  top: 225px;
-  left: 535px;
-  width: 64px;
-  height: 86px; }
-
-.item-10-img {
+.bracers-img {
   background-position-y: -225px;
   background-position-x: -536px; }
 
-.item-11 {
-  top: 325px;
-  left: 547px;
-  width: 40px;
-  height: 40px; }
-
-.item-11-img {
+.finger-right-img {
   background-position-y: -325px;
   background-position-x: -548px; }
 
-.item-12 {
-  top: 380px;
-  left: 535px;
-  width: 64px;
-  height: 128px; }
-
-.item-12-img {
+.hand-right-img {
   background-position-x: -536px;
   background-position-y: -380px; }
 

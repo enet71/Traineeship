@@ -1,0 +1,137 @@
+<div class="versus-table">
+    <div>
+        <div class="user">{{user_1.getName()}}</div>
+        <div class="hero-panel">
+            <div class="hero-title">Hunter</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroHunter.strength}}<br>
+                    Agility: {{heroHunter.agility}}<br>
+                    Intelligence: {{heroHunter.intelligence}}<br><br>
+                    GEAR BONUSES<br>
+                    Strength: +{{bonusesList[0].dexterity}}<br>
+                    Agility: +{{bonusesList[0].vitality}}<br>
+                    Intelligence: +{{bonusesList[0].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[0].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[0].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_1.getCharacterList()[0])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div> 
+        <div class="hero-panel">
+            <div class="hero-title">Warrior</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroWarrior.strength}}<br>
+                    Agility: {{heroWarrior.agility}}<br>
+                    Intelligence: {{heroWarrior.intelligence}}<br><br>
+                    GEAR BONUSES<br>
+                    Strength: +{{bonusesList[1].dexterity}}<br>
+                    Agility: +{{bonusesList[1].vitality}}<br>
+                    Intelligence: +{{bonusesList[1].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[1].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[1].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_1.getCharacterList()[1])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="hero-title">Mage</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroMage.strength}}<br>
+                    Agility: {{heroMage.agility}}<br>
+                    Intelligence: {{heroMage.intelligence}}<br><br>
+                    GEAR BONUSES<br>
+                    Strength: +{{bonusesList[2].dexterity}}<br>
+                    Agility: +{{bonusesList[2].vitality}}<br>
+                    Intelligence: +{{bonusesList[2].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[2].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[2].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_1.getCharacterList()[2])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="versus">
+        VS
+    </div>
+    <div>
+        <div class="user">{{user_2.getName()}}</div>
+        <div class="hero-panel">
+            <div class="hero-title">Hunter</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroHunter.strength}}<br>
+                    Agility: {{heroHunter.agility}}<br>
+                    Intelligence: {{heroHunter.intelligence}}<br><br>
+                    GEAR BONUSES<br>
+                    Strength: +{{bonusesList[3].dexterity}}<br>
+                    Agility: +{{bonusesList[3].vitality}}<br>
+                    Intelligence : +{{bonusesList[3].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[3].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[3].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_2.getCharacterList()[0])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="hero-title">Warrior</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroWarrior.strength}}<br>
+                    Agility: {{heroWarrior.agility}}<br>
+                    Intelligence: {{heroWarrior.intelligence}}<br><br>
+                    GEAR BONUSES<br><br>
+                    Strength: +{{bonusesList[4].dexterity}}<br>
+                    Agility: +{{bonusesList[4].vitality}}<br>
+                    Intelligence: +{{bonusesList[4].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[4].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[4].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_2.getCharacterList()[1])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-panel">
+            <div class="hero-title">Mage</div>
+            <div class="hero-info">
+                <div class="hero-stats">
+                    HERO CHARACTERISTIC<br>
+                    Strength: {{heroMage.strength}}<br>
+                    Agility: {{heroMage.agility}}<br>
+                    Intelligence: {{heroMage.intelligence}}<br><br>
+                    GEAR BONUSES<br><br>
+                    Strength: +{{bonusesList[5].dexterity}}<br>
+                    Agility: +{{bonusesList[5].vitality}}<br>
+                    Intelligence: +{{bonusesList[5].criticalChance}}<br>
+                    Critical Hit Chance: {{bonusesList[5].extraGold}}%<br>
+                    Critical Hit Damage: {{bonusesList[5].criticalHit}}%<br>
+                </div>
+                <div class="hero-item">
+                    <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,user_2.getCharacterList()[2])"
+                         class="item-inventory-0 item"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

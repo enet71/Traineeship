@@ -33,8 +33,8 @@ export class CharacterService {
         return this.itemListCharacter;
     }
 
-    setItemListCharacter(itemList){
-        StaticMethods.clearPushArray(this.itemListCharacter,itemList);
+    setItemListCharacter(itemList) {
+        StaticMethods.clearPushArray(this.itemListCharacter, itemList);
     }
 
     removeItem(item) {
@@ -54,7 +54,19 @@ export class CharacterService {
         }
     }
 
-    clearList(){
+    clearList() {
         this.itemListCharacter.splice(0);
+    }
+
+    mageGenerate() {
+        return {strength: '10', agility: '10', intelligence: '30'};
+    }
+
+    warriorGenerate() {
+        return {strength: '30', agility: '10', intelligence: '10'};
+    }
+
+    hunterGenerate() {
+        return {strength: '10', agility: '30', intelligence: '10'};
     }
 }

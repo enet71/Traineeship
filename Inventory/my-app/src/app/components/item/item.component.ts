@@ -49,6 +49,10 @@ export class ItemComponent {
             res['height'] = this.item.height + 'px';
         }
 
+        if(this.item.opacity){
+            res['opacity'] = 0.3;
+        }
+
         res['z-index'] = 20;
         if (this.itemService.drag.isDragged) {
             res['z-index'] = 1;

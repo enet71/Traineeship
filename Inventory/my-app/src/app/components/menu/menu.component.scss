@@ -1,0 +1,24 @@
+.menu {
+  color: white;
+  width: 1114px;
+  height: 40px;
+  background-color: rgba(34, 21, 12, 0.51);
+  margin: auto;
+  border: 1px solid #2e221d;
+
+  .item {
+    cursor: pointer;
+    text-align: center;
+    width: 300px;
+    margin: auto;
+    font-size: 25px;
+    padding:{
+      top: 5px;
+      bottom: 5px;
+    }
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

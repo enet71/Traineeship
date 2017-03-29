@@ -111,6 +111,7 @@ export class ItemService {
                 extraGold: 0,
                 criticalHit: 0,
             };
+            clone.opacity = true;
         }
         return clone;
     }

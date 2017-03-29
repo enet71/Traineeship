@@ -1,4 +1,42 @@
-.character-list{
+.character-list {
   display: inline-block;
   vertical-align: top;
+}
+
+.start {
+  float: left;
+  color: #1a902b;
+  font-size: 25px;
+  cursor: pointer;
+
+  padding: {
+    top: 15px;
+    right: 15px;
+    left: 15px;
+    bottom: 15px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.heroes {
+  float: right;
+  display: flex;
+
+  .item {
+    cursor: pointer;
+    color: #c0c8be;
+    padding: {
+      top: 15px;
+      right: 15px;
+      left: 15px;
+      bottom: 15px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

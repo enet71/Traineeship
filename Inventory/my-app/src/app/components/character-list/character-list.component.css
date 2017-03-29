@@ -2,4 +2,29 @@
   display: inline-block;
   vertical-align: top; }
 
+.start {
+  float: left;
+  color: #1a902b;
+  font-size: 25px;
+  cursor: pointer;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px; }
+  .start:hover {
+    text-decoration: underline; }
+
+.heroes {
+  float: right;
+  display: flex; }
+  .heroes .item {
+    cursor: pointer;
+    color: #c0c8be;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px; }
+    .heroes .item:hover {
+      text-decoration: underline; }
+
 /*# sourceMappingURL=character-list.component.css.map */

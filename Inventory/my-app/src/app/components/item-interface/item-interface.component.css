@@ -1,3 +1,11 @@
+.ext-panel {
+  padding-top: 20px; }
 
+.item-interface {
+  width: 1114px;
+  height: 590px;
+  margin: auto;
+  background-color: rgba(34, 21, 12, 0.51);
+  border: 1px solid #2e221d; }
 
 /*# sourceMappingURL=item-interface.component.css.map */

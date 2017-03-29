@@ -65,15 +65,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-0",
-        characterCoordsClass: "item-0",
+        characterCoordsClass: "shoulders",
 
-        itemImageBig: "item-0-img",
+        itemImageBig: "shoulders-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[0],
-                characterCoords: "item-0",
+                characterCoords: "shoulders",
             }
         ],
     },
@@ -96,15 +96,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-1",
-        characterCoordsClass: "item-1",
+        characterCoordsClass: "hands",
 
-        itemImageBig: "item-1-img",
+        itemImageBig: "hands-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[1],
-                characterCoords: "item-1",
+                characterCoords: "hands",
             }
         ],
     },
@@ -127,18 +127,18 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-2",
-        characterCoordsClass: "item-2",
+        characterCoordsClass: "finger-left",
 
-        itemImageBig: "item-2-img",
+        itemImageBig: "finger-left-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[2],
-                characterCoords: "item-2",
+                characterCoords: "finger-left",
             }, {
                 value: itemValueList[11],
-                characterCoords: "item-11",
+                characterCoords: "finger-right",
             }
         ],
 
@@ -162,15 +162,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-3",
-        characterCoordsClass: "item-3",
+        characterCoordsClass: "hand-left",
 
-        itemImageBig: "item-3-img",
+        itemImageBig: "hand-left-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[3],
-                characterCoords: "item-3",
+                characterCoords: "hand-left",
             }
         ],
     },
@@ -194,15 +194,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-4",
-        characterCoordsClass: "item-4",
+        characterCoordsClass: "head",
 
-        itemImageBig: "item-4-img",
+        itemImageBig: "head-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[4],
-                characterCoords: "item-4",
+                characterCoords: "head",
             }
         ],
     },
@@ -225,15 +225,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-5",
-        characterCoordsClass: "item-5",
+        characterCoordsClass: "torso",
 
-        itemImageBig: "item-5-img",
+        itemImageBig: "torso-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[5],
-                characterCoords: "item-5",
+                characterCoords: "torso",
             }
         ],
 
@@ -257,15 +257,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-6",
-        characterCoordsClass: "item-6",
+        characterCoordsClass: "waist",
 
-        itemImageBig: "item-6-img",
+        itemImageBig: "waist-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[6],
-                characterCoords: "item-6",
+                characterCoords: "waist",
             }
         ],
 
@@ -289,15 +289,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-7",
-        characterCoordsClass: "item-7",
+        characterCoordsClass: "legs",
 
-        itemImageBig: "item-7-img",
+        itemImageBig: "legs-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[7],
-                characterCoords: "item-7",
+                characterCoords: "legs",
             }
         ],
 
@@ -321,15 +321,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-8",
-        characterCoordsClass: "item-8",
+        characterCoordsClass: "feet",
 
-        itemImageBig: "item-8-img",
+        itemImageBig: "feet-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[8],
-                characterCoords: "item-8",
+                characterCoords: "feet",
             }
         ],
 
@@ -353,15 +353,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-9",
-        characterCoordsClass: "item-9",
+        characterCoordsClass: "neck",
 
-        itemImageBig: "item-9-img",
+        itemImageBig: "neck-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[9],
-                characterCoords: "item-9",
+                characterCoords: "neck",
             }
         ],
 
@@ -385,15 +385,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-10",
-        characterCoordsClass: "item-10",
+        characterCoordsClass: "bracers",
 
-        itemImageBig: "item-10-img",
+        itemImageBig: "bracers-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[10],
-                characterCoords: "item-10",
+                characterCoords: "bracers",
             }
         ],
 
@@ -417,19 +417,19 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-11",
-        characterCoordsClass: "item-11",
+        characterCoordsClass: "finger-right",
 
-        itemImageBig: "item-11-img",
+        itemImageBig: "finger-right-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[11],
-                characterCoords: "item-11",
+                characterCoords: "finger-right",
             },
             {
                 value: itemValueList[2],
-                characterCoords: "item-2",
+                characterCoords: "finger-left",
             }
         ],
 
@@ -453,15 +453,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-12",
-        characterCoordsClass: "item-12",
+        characterCoordsClass: "hand-right",
 
-        itemImageBig: "item-12-img",
+        itemImageBig: "hand-right-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[12],
-                characterCoords: "item-12",
+                characterCoords: "hand-right",
             }
         ],
 
@@ -485,15 +485,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-13",
-        characterCoordsClass: "item-1",
+        characterCoordsClass: "hands",
 
-        itemImageBig: "item-1-img",
+        itemImageBig: "hands-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[1],
-                characterCoords: "item-1",
+                characterCoords: "hands",
             }
         ],
     },
@@ -516,15 +516,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-14",
-        characterCoordsClass: "item-8",
+        characterCoordsClass: "feet",
 
-        itemImageBig: "item-8-img",
+        itemImageBig: "feet-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[8],
-                characterCoords: "item-8",
+                characterCoords: "feet",
             }
         ],
     },
@@ -547,15 +547,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-15",
-        characterCoordsClass: "item-10",
+        characterCoordsClass: "bracers",
 
-        itemImageBig: "item-10-img",
+        itemImageBig: "bracers-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[10],
-                characterCoords: "item-10",
+                characterCoords: "bracers",
             }
         ],
     },
@@ -578,15 +578,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-16",
-        characterCoordsClass: "item-0",
+        characterCoordsClass: "shoulders",
 
-        itemImageBig: "item-0-img",
+        itemImageBig: "shoulders-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[0],
-                characterCoords: "item-0",
+                characterCoords: "shoulders",
             }
         ],
     },
@@ -609,15 +609,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-17",
-        characterCoordsClass: "item-5",
+        characterCoordsClass: "torso",
 
-        itemImageBig: "item-5-img",
+        itemImageBig: "torso-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[5],
-                characterCoords: "item-5",
+                characterCoords: "torso",
             }
         ],
     },
@@ -641,15 +641,15 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-18",
-        characterCoordsClass: "item-7",
+        characterCoordsClass: "legs",
 
-        itemImageBig: "item-7-img",
+        itemImageBig: "legs-img",
 
         fill: false,
         itemValues: [
             {
                 value: itemValueList[7],
-                characterCoords: "item-7",
+                characterCoords: "legs",
             }
         ],
     },
@@ -672,19 +672,19 @@ export const itemList = [
         },
 
         inventoryCoordsClass: "item-inventory-19",
-        characterCoordsClass: "item-3",
+        characterCoordsClass: "hand-left",
 
-        itemImageBig: "item-3-img",
+        itemImageBig: "hand-left-img",
 
         fill: true,
         itemValues: [
             {
                 value: itemValueList[3],
-                characterCoords: "item-3",
+                characterCoords: "hand-left",
             },
             {
                 value: itemValueList[12],
-                characterCoords: "item-12",
+                characterCoords: "hand-right",
             }
         ],
     }

@@ -1,27 +1,3 @@
-@import "../../styles/character-coords";
-
-.tooltip{
-  .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: rgba(33, 20, 10, 0.71);
-    color: #fff;
-    padding: 15px;
-    border-radius: 6px;
-    position: absolute;
-    z-index: 100;
-    margin-top: 10px;
-    margin-left: 50px;
-  }
-
-  &:hover{
-    .tooltiptext {
-      visibility: visible;
-    }
-  }
-}
-
-
 .item {
   z-index: 10;
   position: absolute;
@@ -41,75 +17,6 @@
 
 .characterItemsWarMini{
   background: url("http://image.prntscr.com/image/a240ae986b7d4a66bddedb2e265abd35.png") no-repeat;
-}
-
-.inventoryItems {
-  float: left;
-}
-
-.shoulders-img{
-  background-position-y: -126px;
-  background-position-x: -346px;
-}
-
-.hands-img{
-  background-position-y: -225px;
-  background-position-x: -320px;
-}
-
-.finger-left-img{
-  background-position-y: -325px;
-  background-position-x: -332px;
-}
-
-.hand-left-img{
-  background-position-y: -380px;
-  background-position-x: -320px;
-}
-
-.head-img{
-  background-position-y: -102px;
-  background-position-x: -428px;
-}
-
-.torso-img{
-  background-position-y: -172px;
-  background-position-x: -420px;
-}
-
-.waist-img{
-  background-position-y: -291px;
-  background-position-x: -420px;
-}
-
-.legs-img{
-  background-position-y: -329px;
-  background-position-x: -428px;
-}
-
-.feet-img{
-  background-position-y: -421px;
-  background-position-x: -428px;
-}
-
-.neck-img{
-  background-position-y: -146px;
-  background-position-x: -512px;
-}
-
-.bracers-img{
-  background-position-y: -225px;
-  background-position-x: -536px;
-}
-
-.finger-right-img{
-  background-position-y: -325px;
-  background-position-x: -548px;
-}
-
-.hand-right-img{
-  background-position-x: -536px;
-  background-position-y: -380px;
 }
 
 .item-inventory{
@@ -242,5 +149,3 @@
   background-position-x: -176px;
   background-position-y: 0px;
 }
-
-

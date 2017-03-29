@@ -13,6 +13,7 @@ export class UserCreateComponent {
     private name: string;
 
     constructor(private userService: UserService, private router: Router) {
+        this.player = "Player# " + (userService.getCurrentSize() + 1);
     }
 
     onEnter() {
