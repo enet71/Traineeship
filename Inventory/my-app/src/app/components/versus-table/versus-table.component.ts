@@ -4,48 +4,15 @@ import {itemValueList} from "../../shared/item.data";
 import {User} from "../../shared/classes/user";
 import {CharacterService} from "../../shared/services/character.service";
 import {Battle} from "../../shared/classes/battle";
+import {Observable} from "rxjs";
+import {animations} from "../../shared/classes/animations";
 
 
 @Component({
     selector: 'versus-table',
     templateUrl: 'versus-table.component.html',
     styleUrls: ['versus-table.component.css'],
-    animations: [
-        trigger('leftHunter', [
-            state('1', style({})),
-            state('2', style({})),
-            state('3', style({})),
-            transition('* => 1', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(100px)', offset: 0.3}),
-                    style({opacity: 1, transform: 'translateX(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 2', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(200px)', offset: 0.3}),
-                    style({opacity: 1, transform: 'translateX(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 3', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(300px)', offset: 0.3}),
-                    style({opacity: 1, transform: 'translateX(0px)', offset: 1.0})
-                ]))
-            ])
-        ]),
-        trigger('hitToLeft', [
-            state('true', style({})),
-            state('false', style({})),
-            transition('* => *', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-300px)', offset: 0.3}),
-                    style({opacity: 1, transform: 'translateX(0px)', offset: 1.0})
-                ]))
-            ]),
-        ])
-    ]
-
+    animations: this.animations,
 })
 
 export class VersusTableComponent {
@@ -53,7 +20,8 @@ export class VersusTableComponent {
     private user_1: User;
     private user_2: User;
     private battle;
-    private battleArray = [{hit: -1, def: -1}, {hit: -1, def: -1}, {hit: -1, def: -1}];
+
+    animations = animations;
 
     constructor(private userService: UserService, private characterService: CharacterService) {
         const users = userService.getUsers();
@@ -63,7 +31,7 @@ export class VersusTableComponent {
         this.user_1.calculateCharacteristics();
         this.user_2.calculateCharacteristics();
 
-        this.battle = new Battle(this.user_1, this.user_2, this.battleArray);
+        this.battle = new Battle(this.user_1, this.user_2);
     }
 
     getClass(item, hero) {
@@ -75,26 +43,99 @@ export class VersusTableComponent {
         return [item];
     }
 
+
+    leftHunterState = -1;
+    leftWarriorState = -1;
+    leftMageState = -1;
+
+    rightHunterState = -1;
+    rightWarriorState = -1;
+    rightMageState = -1;
+
     onStart() {
-        this.battle.startBattle();
+        this.battle.startBattle().subscribe(element => {
+            let n = "" + element.hit + element.def;
+            console.log(n);
+            switch (n) {
+                case '03':
+                    this.leftHunterState = 3;
+                    break;
+                case '04':
+                    this.leftHunterState = 4;
+                    break;
+                case '05':
+                    this.leftHunterState = 5;
+                    break;
+                case '13':
+                    this.leftWarriorState = 3;
+                    break;
+                case '14':
+                    this.leftWarriorState = 4;
+                    break;
+                case '15':
+                    this.leftWarriorState = 5;
+                    break;
+                case '23':
+                    this.leftMageState = 3;
+                    break;
+                case '24':
+                    this.leftMageState = 4;
+                    break;
+                case '25':
+                    this.leftMageState = 5;
+                    break;
+                case '30':
+                    this.rightHunterState = 0;
+                    break;
+                case '31':
+                    this.rightHunterState = 1;
+                    break;
+                case '32':
+                    this.rightHunterState = 2;
+                    break;
+                case '40':
+                    this.rightWarriorState = 0;
+                    break;
+                case '41':
+                    this.rightWarriorState = 1;
+                    break;
+                case '42':
+                    this.rightWarriorState = 2;
+                    break;
+                case '50':
+                    this.rightMageState = 0;
+                    break;
+                case '51':
+                    this.rightMageState = 1;
+                    break;
+                case '52':
+                    this.rightMageState = 2;
+                    break;
+            }
+            setTimeout(() => {
+                this.leftHunterState = -1;
+                this.leftWarriorState = -1;
+                this.leftMageState = -1;
+
+                this.rightHunterState = -1;
+                this.rightWarriorState = -1;
+                this.rightMageState = -1;
+            }, 400);
+        });
     }
+
 
     getStyle(index) {
         //FixDef/Hit
-        let res = {};
-        for (let i = 0; i < this.battleArray.length; i++) {
-            if (index == this.battleArray[i].hit) {
-                res['background-color'] = 'rgba(147, 15, 18, 0.36)';
+        /*let res = {};
+         if (index == this.battleObject.hit) {
+         res['background-color'] = 'rgba(147, 15, 18, 0.36)';
 
-            }else if(index == this.battleArray[i].def){
-                res['background-color'] = 'rgba(52, 138, 34, 0.36)';
+         } else if (index == this.battleObject.def) {
+         res['background-color'] = 'rgba(52, 138, 34, 0.36)';
 
-            }
-        }
-        return res;
+         }
+         return res;*/
     }
-
-    leftHunterState = -1;
-
 
 }

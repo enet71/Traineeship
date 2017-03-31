@@ -17,6 +17,7 @@ import {AppRoutingModule} from "./app.routing.module";
 import {UserService} from "./shared/services/user.service";
 import {VersusTableComponent} from "./components/versus-table/versus-table.component";
 import {MenuComponent} from "./components/menu/menu.component";
+import {BattleHero} from "./components/versus-table/battle-hero/battle-hero.component";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {MenuComponent} from "./components/menu/menu.component";
         UserCreateComponent,
         ItemInterfaceComponent,
         VersusTableComponent,
-        MenuComponent
+        MenuComponent,
+        BattleHero
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,17 @@
+<div [@hero]="leftHunterState" [ngStyle]="getStyle(0)" class="hero-panel">
+    <div class="hero-title">Hunter</div>
+    <div class="hero-info">
+        <div class="hero-stats">
+            HERO CHARACTERISTIC<br><br>
+            Health: {{hero.getMaxHealth()}}<br>
+            Damage: {{hero.getDamage()}}<br>
+            Strength: {{hero.getStrength()}}<br>
+            Agility: {{hero.getAgility()}}<br>
+            Intelligence: {{hero.getIntelligence()}}<br>
+        </div>
+        <div class="hero-item">
+            <div *ngFor="let item of itemValueList" [ngClass]="getClass(item,characterList)"
+                 class="item-inventory-0 item"></div>
+        </div>
+    </div>
+</div>

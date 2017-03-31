@@ -1,13 +1,16 @@
 import {User} from "./user";
 import {Hero} from "./hero";
+import {Observable} from "rxjs";
+
 export class Battle {
     private user1_heroList: Hero[] = [];
     private user2_heroList: Hero[] = [];
     private heroList: Hero[] = [];
     private hasWinner = false;
     private battleInterval;
+    private log = [];
 
-    constructor(private user1: User, private user2: User, private battleArray) {
+    constructor(private user1: User, private user2: User) {
         this.setEnemies(user1, user2);
         this.setEnemies(user2, user1);
 
@@ -39,10 +42,22 @@ export class Battle {
     }
 
     startBattle() {
-        this.hitAll();
+        while (this.hasWinner == false) {
+            this.hitAll();
+        }
 
-        this.battleInterval = setInterval(() => {
-        }, 2000);
+        let iterator = this.log[Symbol.iterator]();
+        return Observable.create(function subscribe(observer) {
+            const interval = setInterval(() => {
+                let res = iterator.next();
+
+                if (res.done) {
+                    clearInterval(interval);
+                }else{
+                    observer.next(res.value);
+                }
+            }, 600);
+        });
     }
 
     setReady() {
@@ -56,22 +71,11 @@ export class Battle {
     }
 
     hitAll() {
-        this.battleArray.splice(0);
         for (let hero of this.heroList) {
-            
             if (hero.getLifeStatus()) {
                 if (hero.isReady()) {
                     hero.hitEnemy();
-
-                    /*this.battleObject.hit = this.heroList.indexOf(hero);
-                     this.battleObject.def = this.heroList.indexOf(hero.getEnemy());*/
-                    /*Array Push*/
-                    const obj = {
-                        hit: this.heroList.indexOf(hero),
-                        def: this.heroList.indexOf(hero.getEnemy())
-                    };
-                    this.battleArray.push(obj);
-
+                    this.logPush(hero);
                     if (hero.getHasEnemy() == false) {
                         hero.setEnemy(this.findEnemy(hero));
                     }
@@ -79,11 +83,16 @@ export class Battle {
                 hero.toggleReady();
             }
         }
-        console.log(this.battleArray);
-
         this.checkWin();
     }
 
+    logPush(hero) {
+        let logObj = {
+            hit: this.heroList.indexOf(hero),
+            def: this.heroList.indexOf(hero.getEnemy())
+        };
+        this.log.push(logObj);
+    }
 
     findEnemy(hero): Hero {
         const list = this.getList(hero.getEnemy());
@@ -131,6 +140,6 @@ export class Battle {
 
     win(user) {
         console.log(user);
-        clearInterval(this.battleInterval);
+        this.hasWinner = true;
     }
 }
