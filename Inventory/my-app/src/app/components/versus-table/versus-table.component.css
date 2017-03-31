@@ -102,6 +102,9 @@
   background-position-x: -176px;
   background-position-y: 0px; }
 
+.test {
+  background-color: rgba(147, 94, 7, 0.39); }
+
 .versus-table {
   position: relative;
   display: flex;
@@ -114,11 +117,20 @@
     overflow: hidden;
     margin-top: 20px;
     text-transform: uppercase; }
-  .versus-table .versus {
-    font-size: 120px;
-    color: #8c1d13;
+  .versus-table .middle {
     padding-left: 100px;
     padding-right: 100px; }
+    .versus-table .middle .versus {
+      font-size: 120px;
+      color: #8c1d13; }
+    .versus-table .middle .start {
+      font-size: 30px;
+      color: #8c1d13;
+      cursor: pointer;
+      text-align: center; }
+      .versus-table .middle .start:hover {
+        color: #a31d13;
+        text-decoration: underline; }
   .versus-table .hero-panel {
     background-color: rgba(34, 21, 12, 0.6);
     width: auto;

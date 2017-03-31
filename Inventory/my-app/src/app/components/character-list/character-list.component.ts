@@ -16,7 +16,6 @@ export class CharacterListComponent {
     private lists = [[], [], []];
     private selectItem: number = 0;
     private user;
-    playerName;
 
     constructor(private characterService: CharacterService,
                 private userService: UserService,
@@ -26,7 +25,6 @@ export class CharacterListComponent {
         this.currentList = this.lists[0];
         this.route.params.subscribe(parameter => {
             this.user = this.userService.getUserById(parameter['id']);
-            this.playerName = this.user.getName();
         });
     }
 
@@ -45,6 +43,7 @@ export class CharacterListComponent {
         this.characterService.clearList();
 
         if (this.userService.hasNext()) {
+
             this.router.navigate(['createUser']);
         } else {
             this.router.navigate(['versus-table']);

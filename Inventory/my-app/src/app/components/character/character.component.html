@@ -1,6 +1,6 @@
 <div class="character" [ngStyle]="getStyleCharacter(item)">
     <div class="player">
-        {{playerName}}
+        {{user.getName()}}
     </div>
     <div class="bonuses">
         HERO CHARACTERISTIC<br>
@@ -8,11 +8,9 @@
         Agility: {{hero.agility}}<br>
         Intelligence: {{hero.intelligence}}<br><br>
         GEAR BONUSES<br>
-        Strength: +{{character.dexterity}}<br>
-        Agility: +{{character.vitality}}<br>
-        Intelligence: +{{character.criticalChance}}<br>
-        Critical Hit Chance Increased by: {{character.extraGold}}%<br>
-        Critical Hit Damage Increased by: {{character.criticalHit}}%<br>
+        Strength: +{{character.strength}}<br>
+        Agility: +{{character.agility}}<br>
+        Intelligence: +{{character.intelligence}}<br>
     </div>
     <item *ngFor="let item of itemList" [item]="item"></item>
     <div

@@ -52,11 +52,9 @@ export const itemList = [
         itemValue: itemValueList[0],
 
         bonuses: {
-            dexterity: 315,
-            vitality: 170,
-            criticalChance: 2,
-            extraGold: 11,
-            criticalHit: 10
+            strength: 215,
+            agility: 170,
+            intelligence: 120
         },
 
         styles: {
@@ -83,11 +81,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[1],
         bonuses: {
-            dexterity: 300,
-            vitality: 120,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 40,
+            agility: 320,
+            intelligence: 50
         },
 
         styles: {
@@ -114,11 +110,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[2],
         bonuses: {
-            dexterity: 330,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 8,
-            criticalHit: 10
+            strength: 330,
+            agility: 170,
+            intelligence: 110
         },
 
         styles: {
@@ -149,11 +143,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[3],
         bonuses: {
-            dexterity: 220,
-            vitality: 50,
-            criticalChance: 8,
-            extraGold: 4,
-            criticalHit: 2
+            strength: 220,
+            agility: 330,
+            intelligence: 55
         },
 
         styles: {
@@ -181,11 +173,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[4],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 130,
+            agility: 140,
+            intelligence: 220
         },
 
         styles: {
@@ -212,11 +202,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[5],
         bonuses: {
-            dexterity: 340,
-            vitality: 130,
-            criticalChance: 7,
-            extraGold: 14,
-            criticalHit: 11
+            strength: 140,
+            agility: 130,
+            intelligence: 300
         },
 
         styles: {
@@ -244,11 +232,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[6],
         bonuses: {
-            dexterity: 200,
-            vitality: 300,
-            criticalChance: 12,
-            extraGold: 25,
-            criticalHit: 16
+            strength: 200,
+            agility: 300,
+            intelligence: 120
         },
 
         styles: {
@@ -276,11 +262,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[7],
         bonuses: {
-            dexterity: 100,
-            vitality: 400,
-            criticalChance: 5,
-            extraGold: 15,
-            criticalHit: 25
+            strength: 100,
+            agility: 300,
+            intelligence: 145
         },
 
         styles: {
@@ -308,11 +292,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[8],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 7,
-            extraGold: 8,
-            criticalHit: 16
+            strength: 120,
+            agility: 300,
+            intelligence: 70
         },
 
         styles: {
@@ -340,11 +322,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[9],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 4
+            strength: 100,
+            agility: 240,
+            intelligence: 120
         },
 
         styles: {
@@ -372,11 +352,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[10],
         bonuses: {
-            dexterity: 245,
-            vitality: 50,
-            criticalChance: 2,
-            extraGold: 6,
-            criticalHit: 15
+            strength: 245,
+            agility: 50,
+            intelligence: 180
         },
 
         styles: {
@@ -404,11 +382,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[11],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 300,
+            agility: 100,
+            intelligence: 220
         },
 
         styles: {
@@ -440,11 +416,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[12],
         bonuses: {
-            dexterity: 300,
-            vitality: 150,
-            criticalChance: 5,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 300,
+            agility: 150,
+            intelligence: 150
         },
 
         styles: {
@@ -472,11 +446,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[1],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 300,
+            agility: 500,
+            intelligence: 200
         },
 
         styles: {
@@ -503,11 +475,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[8],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 300,
+            agility: 600,
+            intelligence: 234
         },
 
         styles: {
@@ -534,11 +504,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[10],
         bonuses: {
-            dexterity: 300,
-            vitality: 100,
-            criticalChance: 2,
-            extraGold: 10,
-            criticalHit: 10
+            strength: 300,
+            agility: 400,
+            intelligence: 321
         },
 
         styles: {
@@ -565,11 +533,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[0],
         bonuses: {
-            dexterity: 320,
-            vitality: 110,
-            criticalChance: 4,
-            extraGold: 7,
-            criticalHit: 6
+            strength: 320,
+            agility: 110,
+            intelligence: 143
         },
 
         styles: {
@@ -596,11 +562,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[5],
         bonuses: {
-            dexterity: 320,
-            vitality: 110,
-            criticalChance: 4,
-            extraGold: 7,
-            criticalHit: 6
+            strength: 320,
+            agility: 110,
+            intelligence: 47
         },
 
         styles: {
@@ -627,11 +591,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[7],
         bonuses: {
-            dexterity: 320,
-            vitality: 110,
-            criticalChance: 4,
-            extraGold: 7,
-            criticalHit: 6
+            strength: 320,
+            agility: 110,
+            intelligence: 445
         },
 
 
@@ -659,11 +621,9 @@ export const itemList = [
         status: false,
         itemValue: itemValueList[3],
         bonuses: {
-            dexterity: 320,
-            vitality: 110,
-            criticalChance: 4,
-            extraGold: 7,
-            criticalHit: 6
+            strength: 320,
+            agility: 110,
+            intelligence: 400
         },
 
         styles: {

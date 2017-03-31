@@ -6,26 +6,20 @@ export class CharacterService {
     private itemListCharacter: any = [];
 
     public character = {
-        dexterity: 0,
-        vitality: 0,
-        criticalChance: 0,
-        extraGold: 0,
-        criticalHit: 0,
+        strength: 0,
+        agility: 0,
+        intelligence: 0,
     };
 
     calculateBonuses() {
-        this.character.dexterity = 0;
-        this.character.vitality = 0;
-        this.character.criticalChance = 0;
-        this.character.extraGold = 0;
-        this.character.criticalHit = 0;
+        this.character.strength = 0;
+        this.character.agility = 0;
+        this.character.intelligence = 0;
 
         for (let item of this.itemListCharacter) {
-            this.character.dexterity += item.bonuses.dexterity;
-            this.character.vitality += item.bonuses.vitality;
-            this.character.criticalChance += item.bonuses.criticalChance;
-            this.character.extraGold += item.bonuses.extraGold;
-            this.character.criticalHit += item.bonuses.criticalHit;
+            this.character.strength += item.bonuses.strength;
+            this.character.agility += item.bonuses.agility;
+            this.character.intelligence += item.bonuses.intelligence;
         }
     }
 
@@ -59,14 +53,14 @@ export class CharacterService {
     }
 
     mageGenerate() {
-        return {strength: '10', agility: '10', intelligence: '30'};
+        return {strength: '100', agility: '100', intelligence: '30'};
     }
 
     warriorGenerate() {
-        return {strength: '30', agility: '10', intelligence: '10'};
+        return {strength: '30', agility: '100', intelligence: '100'};
     }
 
     hunterGenerate() {
-        return {strength: '10', agility: '30', intelligence: '10'};
+        return {strength: '100', agility: '30', intelligence: '100'};
     }
 }

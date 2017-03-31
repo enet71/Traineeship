@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from "@angular/core";
+import {Component, Input, OnChanges, SimpleChanges, OnInit} from "@angular/core";
 import {ItemService} from "../../shared/services/item.service";
 import {CharacterService} from "../../shared/services/character.service";
 import {itemValueList} from "../../shared/item.data";
@@ -9,7 +9,7 @@ import {itemValueList} from "../../shared/item.data";
     styleUrls: ['character.component.css']
 })
 
-export class CharacterComponent {
+export class CharacterComponent implements OnInit {
     private itemList = [];
     private character = {};
     private itemValueList = [];
@@ -21,13 +21,17 @@ export class CharacterComponent {
         "http://image.prntscr.com/image/560833905a3249fba6546855bd7a8f9b.png"];
     private index = 0;
 
-    @Input() playerName = "Player";
+    @Input() user;
 
     constructor(private itemService: ItemService, private characterService: CharacterService) {
         this.itemList = characterService.getItemListCharacter();
         this.character = characterService.character;
         this.itemValueList = itemValueList;
         this.drag = itemService.drag;
+    }
+
+    ngOnInit(): void {
+        this.user.setHeroList([this.characterService.hunterGenerate(), this.characterService.warriorGenerate(), this.characterService.mageGenerate()]);
         this.getHero();
     }
 
@@ -86,11 +90,11 @@ export class CharacterComponent {
 
     getHero() {
         if (this.index == 0) {
-            this.hero = this.characterService.hunterGenerate();
+            this.hero = this.user.getHunterStats();
         } else if (this.index == 1) {
-            this.hero = this.characterService.warriorGenerate();
+            this.hero = this.user.getWarriorStats();
         } else if (this.index == 2) {
-            this.hero = this.characterService.mageGenerate();
+            this.hero = this.user.getMageStats();
         }
     }
 }

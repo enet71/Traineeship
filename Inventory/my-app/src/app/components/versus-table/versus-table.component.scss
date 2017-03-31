@@ -1,4 +1,8 @@
 @import "../../styles/inventory-sprites";
+.test{
+  background-color: rgba(147, 94, 7, 0.39);
+}
+
 
 .versus-table {
   position: relative;
@@ -15,11 +19,25 @@
     text-transform: uppercase;
   }
 
-  .versus {
-    font-size: 120px;
-    color: #8c1d13;
+  .middle {
     padding-left: 100px;
     padding-right: 100px;
+
+    .versus{
+      font-size: 120px;
+      color: #8c1d13;
+    }
+
+    .start{
+      font-size: 30px;
+      color: #8c1d13;
+      cursor: pointer;
+      text-align: center;
+      &:hover{
+        color: #a31d13;
+        text-decoration: underline;
+      }
+    }
   }
 
   .hero-panel {

@@ -105,11 +105,9 @@ export class ItemService {
         clone.status = true;
         if (bonuses) {
             clone.bonuses = {
-                dexterity: 0,
-                vitality: 0,
-                criticalChance: 0,
-                extraGold: 0,
-                criticalHit: 0,
+                strength: 0,
+                agility: 0,
+                intelligence: 0
             };
             clone.opacity = true;
         }
