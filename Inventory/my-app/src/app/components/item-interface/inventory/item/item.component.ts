@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {ItemService} from "../../shared/services/item.service";
+import {ItemService} from "../../../../shared/services/item.service";
 import {Observable} from "rxjs";
 @Component({
     selector: 'item',
@@ -49,7 +49,7 @@ export class ItemComponent {
             res['height'] = this.item.height + 'px';
         }
 
-        if(this.item.opacity){
+        if (this.item.opacity) {
             res['opacity'] = 0.3;
         }
 

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output, ViewChild, ElementRef} from "@angular/core";
-import {ItemService} from "../../shared/services/item.service";
+import {ItemService} from "../../../shared/services/item.service";
+
 @Component({
     selector: 'inventory',
     templateUrl: 'inventory.component.html',
@@ -15,11 +16,11 @@ export class InventoryComponent {
         this.itemList = itemService.getItemList();
     }
 
-    onDrop(ev){
+    onDrop(ev) {
         ev.preventDefault();
         const x = ev.pageX - this.inventory.nativeElement.offsetLeft;
         const y = ev.pageY - this.inventory.nativeElement.offsetTop;
-        this.itemService.setCoordsXY(this.itemService.dragItem,x,y);
+        this.itemService.setCoordsXY(this.itemService.dragItem, x, y);
         this.itemService.drag.isDragged = false;
     }
 

@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import {CharacterService} from "../../shared/services/character.service";
-import {StaticMethods} from "../../shared/classes/static-methods";
-import {UserService} from "../../shared/services/user.service";
 import {Router, ActivatedRoute} from "@angular/router";
-import {InventoryService} from "../../shared/services/inventory.service";
+import {CharacterService} from "../../../shared/services/character.service";
+import {InventoryService} from "../../../shared/services/inventory.service";
+import {UserService} from "../../../shared/services/user.service";
+import {StaticMethods} from "../../../shared/classes/static-methods";
 
 @Component({
     selector: 'character-list',

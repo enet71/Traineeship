@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, SimpleChanges, OnInit} from "@angular/core";
-import {ItemService} from "../../shared/services/item.service";
-import {CharacterService} from "../../shared/services/character.service";
-import {itemValueList} from "../../shared/item.data";
+import {CharacterService} from "../../../../shared/services/character.service";
+import {itemValueList} from "../../../../shared/item.data";
+import {ItemService} from "../../../../shared/services/item.service";
 
 @Component({
     selector: 'character',

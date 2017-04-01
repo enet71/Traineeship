@@ -4,13 +4,13 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {InventoryComponent} from "./components/inventory/inventory.component";
+import {InventoryComponent} from "./components/item-interface/inventory/inventory.component";
 import {ItemService} from "./shared/services/item.service";
-import {ItemComponent} from "./components/item/item.component";
-import {CharacterComponent} from "./components/character/character.component";
+import {ItemComponent} from "./components/item-interface/inventory/item/item.component";
+import {CharacterComponent} from "./components/item-interface/character-list/character/character.component";
 import {CharacterService} from "./shared/services/character.service";
 import {InventoryService} from "./shared/services/inventory.service";
-import {CharacterListComponent} from "./components/character-list/character-list.component";
+import {CharacterListComponent} from "./components/item-interface/character-list/character-list.component";
 import {UserCreateComponent} from "./components/user-create/user-create.component";
 import {ItemInterfaceComponent} from "./components/item-interface/item-interface.component";
 import {AppRoutingModule} from "./app.routing.module";
