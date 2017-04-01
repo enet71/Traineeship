@@ -1,161 +1,28 @@
-import {Component, trigger, state, style, transition, animate, keyframes, Input} from "@angular/core";
+import {
+    Component, trigger, state, style, transition, animate, keyframes, Input, OnChanges,
+    SimpleChanges
+} from "@angular/core";
 import {Hero} from "../../../shared/classes/hero";
+import {itemValueList} from "../../../shared/item.data";
+import {animations} from "../../../shared/classes/animations";
 
 @Component({
     selector: 'battle-hero',
     templateUrl: 'battle-hero.component.html',
     styleUrls: ['battle-hero.component.css'],
-    animations: [
-        trigger('hero', [
-            state('3', style({})),
-            state('4', style({})),
-            state('5', style({})),
-            transition('* => 3', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-            transition('* => 4', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 5', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(700px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-        ]),
-        trigger('leftWarrior', [
-            state('3', style({})),
-            state('4', style({})),
-            state('5', style({})),
-            transition('* => 3', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(-300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-
-                ]))
-            ]),
-            transition('* => 4', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-            transition('* => 5', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-        ]),
-        trigger('leftMage', [
-            state('3', style({})),
-            state('4', style({})),
-            state('5', style({})),
-            transition('* => 3', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(-700px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 4', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(350px) translateY(-300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 5', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-        ]),
-
-        trigger('rightHunter', [
-            state('0', style({})),
-            state('1', style({})),
-            state('2', style({})),
-            transition('* => 0', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(-350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-            transition('* => 1', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 2', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(700px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-        ]),
-        trigger('rightWarrior', [
-            state('0', style({})),
-            state('1', style({})),
-            state('2', style({})),
-            transition('* => 0', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(-300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-
-                ]))
-            ]),
-            transition('* => 1', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(-350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-            transition('* => 2', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-        ]),
-        trigger('rightMage', [
-            state('0', style({})),
-            state('1', style({})),
-            state('2', style({})),
-            transition('* => 0', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(-700px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 1', [
-                animate(300, keyframes([
-                    style({opacity: 1, transform: 'translateX(-350px) translateY(-300px)', offset: 0.4}),
-                    style({opacity: 1, transform: 'translateX(0px) translateY(0px)', offset: 1.0})
-                ]))
-            ]),
-            transition('* => 2', [
-                animate(300, keyframes([
-                    style({transform: 'translateX(-350px)', offset: 0.4}),
-                    style({transform: 'translateX(0px)', offset: 1}),
-                ]))
-            ]),
-        ]),
-    ]
+    animations: animations
 })
 
 export class BattleHero {
     @Input() hero: Hero;
     @Input() characterList;
-    test;
-    constructor() {
+    @Input() state;
+    @Input() name;
+    private fieldWidth = 344;
+    private itemValueList;
 
+    constructor() {
+        this.itemValueList = itemValueList;
     }
 
     getClass(item, hero) {
@@ -165,5 +32,24 @@ export class BattleHero {
             }
         }
         return [item];
+    }
+
+    getHealthStyle() {
+        let res = {};
+        let n = this.fieldWidth;
+        if (this.state.health != -1) {
+            n = this.state.health * 100 / this.hero.getMaxHealth();
+            n = n * this.fieldWidth / 100;
+        }
+        res['width'] = n + 'px';
+        return res;
+    }
+
+    getMainStyle(){
+        let res = {};
+        if(this.state.health == 0){
+            res['background-color'] = 'rgba(69, 6, 6, 0.6)';
+        }
+        return res;
     }
 }

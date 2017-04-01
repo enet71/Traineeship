@@ -1,16 +1,10 @@
-@import "../../styles/inventory-sprites";
-.test{
-  background-color: rgba(147, 94, 7, 0.39);
-}
-
-
 .versus-table {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  .user{
+  .user {
     color: #f0f0f0;
     font-size: 25px;
     text-align: center;
@@ -23,137 +17,20 @@
     padding-left: 100px;
     padding-right: 100px;
 
-    .versus{
+    .versus {
       font-size: 120px;
       color: #8c1d13;
     }
 
-    .start{
+    .start {
       font-size: 30px;
       color: #8c1d13;
       cursor: pointer;
       text-align: center;
-      &:hover{
+      &:hover {
         color: #a31d13;
         text-decoration: underline;
       }
     }
   }
-
-  .hero-panel {
-    background-color: rgba(34, 21, 12, 0.6);
-    width: auto;
-    padding: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border: 1px solid #160d07;
-
-    .hero-title {
-      color: #f0f0f0;
-      font-size: 20px;
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .hero-info {
-      display: flex;
-
-      .hero-stats {
-        color: #f0f0f0;
-        padding-right: 20px;
-      }
-
-      .hero-item {
-        position: relative;
-        width: 140px;
-        height: 281px;
-      }
-    }
-  }
-}
-
-.size {
-  width: 44px;
-  height: 53px;
-  background-color: rgba(34, 21, 12, 0.71);
-
-}
-
-.shoulders {
-  @extend .size;
-  top: 27px;
-  left: 0px;
-}
-
-.hands {
-  @extend .size;
-  top: 84px;
-  left: 0px;
-}
-
-.finger-left {
-  @extend .size;
-  top: 141px;
-  left: 0px;
-}
-
-.hand-left {
-  @extend .size;
-  top: 198px;
-  left: 0px;
-}
-
-.head {
-  @extend .size;
-  top: 0px;
-  left: 48px;
-}
-
-.torso {
-  @extend .size;
-  top: 57px;
-  left: 48px;
-}
-
-.waist {
-  @extend .size;
-  top: 114px;
-  left: 48px;
-}
-
-.legs {
-  top: 171px;
-  left: 48px;
-  @extend .size;
-
-}
-
-.feet {
-  @extend .size;
-  top: 228px;
-  left: 48px;
-}
-
-.neck {
-  @extend .size;
-  top: 27px;
-  left: 96px;
-}
-
-.bracers {
-  @extend .size;
-  top: 84px;
-  left: 96px;
-}
-
-.finger-right {
-  @extend .size;
-  top: 141px;
-  left: 96px;
-}
-
-.hand-right {
-  @extend .size;
-  top: 198px;
-  left: 96px;
 }

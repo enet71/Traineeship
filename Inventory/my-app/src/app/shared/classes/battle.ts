@@ -89,7 +89,9 @@ export class Battle {
     logPush(hero) {
         let logObj = {
             hit: this.heroList.indexOf(hero),
-            def: this.heroList.indexOf(hero.getEnemy())
+            def: this.heroList.indexOf(hero.getEnemy()),
+            hpHero: hero.getHealth(),
+            hpEnemy: hero.getEnemy().getHealth()
         };
         this.log.push(logObj);
     }

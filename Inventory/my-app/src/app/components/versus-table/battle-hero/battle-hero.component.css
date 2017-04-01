@@ -108,12 +108,21 @@
   padding: 20px;
   margin-bottom: 20px;
   margin-top: 20px;
-  border: 1px solid #160d07; }
+  border: 1px solid #160d07;
+  position: relative; }
+  .hero-panel .health {
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    height: 10px;
+    background-color: #1a902b;
+    margin-bottom: 10px;
+    width: 344px; }
   .hero-panel .hero-title {
     color: #f0f0f0;
     font-size: 20px;
     text-align: center;
-    padding-bottom: 20px; }
+    padding-bottom: 10px; }
   .hero-panel .hero-info {
     display: flex; }
     .hero-panel .hero-info .hero-stats {
