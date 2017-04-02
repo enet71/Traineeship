@@ -12,7 +12,7 @@ export class MenuComponent {
 
     }
 
-    onClearUsers(){
+    onClearUsers() {
         this.userService.clearUsers();
     }
 }

@@ -48,6 +48,7 @@ export const itemList = [
     {
         index: 0,
         inventoryIndex: 0,
+        price: 100,
         status: false,
         itemValue: itemValueList[0],
 
@@ -78,6 +79,7 @@ export const itemList = [
     {
         index: 1,
         inventoryIndex: 1,
+        price: 100,
         status: false,
         itemValue: itemValueList[1],
         bonuses: {
@@ -107,6 +109,7 @@ export const itemList = [
     {
         index: 2,
         inventoryIndex: 2,
+        price: 100,
         status: false,
         itemValue: itemValueList[2],
         bonuses: {
@@ -140,6 +143,7 @@ export const itemList = [
     {
         index: 3,
         inventoryIndex: 3,
+        price: 100,
         status: false,
         itemValue: itemValueList[3],
         bonuses: {
@@ -170,6 +174,7 @@ export const itemList = [
     {
         index: 4,
         inventoryIndex: 4,
+        price: 100,
         status: false,
         itemValue: itemValueList[4],
         bonuses: {
@@ -199,6 +204,7 @@ export const itemList = [
     {
         index: 5,
         inventoryIndex: 5,
+        price: 100,
         status: false,
         itemValue: itemValueList[5],
         bonuses: {
@@ -229,6 +235,7 @@ export const itemList = [
     {
         index: 6,
         inventoryIndex: 6,
+        price: 100,
         status: false,
         itemValue: itemValueList[6],
         bonuses: {
@@ -259,6 +266,7 @@ export const itemList = [
     {
         index: 7,
         inventoryIndex: 7,
+        price: 100,
         status: false,
         itemValue: itemValueList[7],
         bonuses: {
@@ -289,6 +297,7 @@ export const itemList = [
     {
         index: 8,
         inventoryIndex: 8,
+        price: 100,
         status: false,
         itemValue: itemValueList[8],
         bonuses: {
@@ -319,6 +328,7 @@ export const itemList = [
     {
         index: 9,
         inventoryIndex: 9,
+        price: 100,
         status: false,
         itemValue: itemValueList[9],
         bonuses: {
@@ -349,6 +359,7 @@ export const itemList = [
     {
         index: 10,
         inventoryIndex: 10,
+        price: 100,
         status: false,
         itemValue: itemValueList[10],
         bonuses: {
@@ -379,6 +390,7 @@ export const itemList = [
     {
         index: 11,
         inventoryIndex: 11,
+        price: 100,
         status: false,
         itemValue: itemValueList[11],
         bonuses: {
@@ -413,6 +425,7 @@ export const itemList = [
     {
         index: 12,
         inventoryIndex: 12,
+        price: 100,
         status: false,
         itemValue: itemValueList[12],
         bonuses: {
@@ -443,6 +456,7 @@ export const itemList = [
     {
         index: 13,
         inventoryIndex: 13,
+        price: 100,
         status: false,
         itemValue: itemValueList[1],
         bonuses: {
@@ -472,6 +486,7 @@ export const itemList = [
     {
         index: 14,
         inventoryIndex: 14,
+        price: 100,
         status: false,
         itemValue: itemValueList[8],
         bonuses: {
@@ -501,6 +516,7 @@ export const itemList = [
     {
         index: 15,
         inventoryIndex: 15,
+        price: 100,
         status: false,
         itemValue: itemValueList[10],
         bonuses: {
@@ -530,6 +546,7 @@ export const itemList = [
     {
         index: 16,
         inventoryIndex: 16,
+        price: 100,
         status: false,
         itemValue: itemValueList[0],
         bonuses: {
@@ -559,6 +576,7 @@ export const itemList = [
     {
         index: 17,
         inventoryIndex: 17,
+        price: 100,
         status: false,
         itemValue: itemValueList[5],
         bonuses: {
@@ -588,6 +606,7 @@ export const itemList = [
     {
         index: 18,
         inventoryIndex: 18,
+        price: 100,
         status: false,
         itemValue: itemValueList[7],
         bonuses: {
@@ -618,6 +637,7 @@ export const itemList = [
     {
         index: 19,
         inventoryIndex: 19,
+        price: 100,
         status: false,
         itemValue: itemValueList[3],
         bonuses: {

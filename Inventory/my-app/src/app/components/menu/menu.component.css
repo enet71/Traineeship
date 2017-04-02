@@ -5,15 +5,24 @@
   background-color: rgba(34, 21, 12, 0.51);
   margin: auto;
   border: 1px solid #2e221d; }
-  .menu .item {
+  .menu .item, .menu .start, .menu .battle-stat {
     cursor: pointer;
-    text-align: center;
+    text-align: center; }
+    .menu .item a, .menu .start a, .menu .battle-stat a {
+      text-decoration: none;
+      color: #fafafa; }
+    .menu .item:hover, .menu .start:hover, .menu .battle-stat:hover {
+      text-decoration: underline; }
+  .menu .start {
     width: 300px;
     margin: auto;
     font-size: 25px;
     padding-top: 5px;
     padding-bottom: 5px; }
-    .menu .item:hover {
-      text-decoration: underline; }
+  .menu .battle-stat {
+    float: right;
+    font-size: 20px;
+    line-height: 2;
+    padding-right: 10px; }
 
 /*# sourceMappingURL=menu.component.css.map */

@@ -4,13 +4,13 @@
     </div>
     <div class="bonuses">
         HERO CHARACTERISTIC<br>
-        Strength: {{hero.strength}}<br>
-        Agility: {{hero.agility}}<br>
-        Intelligence: {{hero.intelligence}}<br><br>
+        <span [ngStyle]="getStyleCharacteristic(0)">Agility:</span> {{hero.agility}}<br>
+        <span [ngStyle]="getStyleCharacteristic(1)">Strength:</span> {{hero.strength}}<br>
+        <span [ngStyle]="getStyleCharacteristic(2)">Intelligence:</span> {{hero.intelligence}}<br><br>
         GEAR BONUSES<br>
-        Strength: +{{character.strength}}<br>
-        Agility: +{{character.agility}}<br>
-        Intelligence: +{{character.intelligence}}<br>
+        <span [ngStyle]="getStyleCharacteristic(0)">Agility:</span> +{{character.agility}}<br>
+        <span [ngStyle]="getStyleCharacteristic(1)">Strength:</span> +{{character.strength}}<br>
+        <span [ngStyle]="getStyleCharacteristic(2)">Intelligence:</span> +{{character.intelligence}}<br>
     </div>
     <item *ngFor="let item of itemList" [item]="item"></item>
     <div

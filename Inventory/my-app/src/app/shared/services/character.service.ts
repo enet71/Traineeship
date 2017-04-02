@@ -53,14 +53,14 @@ export class CharacterService {
     }
 
     mageGenerate() {
-        return {strength: '100', agility: '100', intelligence: '30'};
+        return {strength: '100', agility: '100', intelligence: '300'};
     }
 
     warriorGenerate() {
-        return {strength: '30', agility: '100', intelligence: '100'};
+        return {strength: '300', agility: '100', intelligence: '100'};
     }
 
     hunterGenerate() {
-        return {strength: '100', agility: '30', intelligence: '100'};
+        return {strength: '100', agility: '300', intelligence: '100'};
     }
 }

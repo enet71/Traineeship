@@ -4,6 +4,7 @@ import {itemValueList} from "../../shared/item.data";
 import {User} from "../../shared/classes/user";
 import {CharacterService} from "../../shared/services/character.service";
 import {Battle} from "../../shared/classes/battle";
+import {BattleStatisticService} from "../../shared/services/battle-statistic.service";
 
 @Component({
     selector: 'versus-table',
@@ -14,9 +15,11 @@ import {Battle} from "../../shared/classes/battle";
 export class VersusTableComponent {
     private user_1: User;
     private user_2: User;
+    private winner: User;
     private battle;
+    private battleOver: boolean = false;
 
-    constructor(private userService: UserService, private characterService: CharacterService) {
+    constructor(private userService: UserService, private battleStatisticService: BattleStatisticService) {
         const users = userService.getUsers();
         this.user_1 = users[0];
         this.user_2 = users[1];
@@ -24,7 +27,7 @@ export class VersusTableComponent {
         this.user_1.calculateCharacteristics();
         this.user_2.calculateCharacteristics();
 
-        this.battle = new Battle(this.user_1, this.user_2);
+        this.battle = new Battle(this.user_1, this.user_2, battleStatisticService);
     }
 
     private leftHunter = {state: -1, health: -1};
@@ -38,7 +41,6 @@ export class VersusTableComponent {
     onStart() {
         this.battle.startBattle().subscribe(element => {
             let n = "" + element.hit + element.def;
-            console.log(n);
             switch (n) {
                 case '03':
                     this.leftHunter.state = 0;
@@ -122,6 +124,11 @@ export class VersusTableComponent {
                 this.rightWarrior.state = -1;
                 this.rightMage.state = -1;
             }, 400);
+        }, err => {
+            console.log(err);
+        }, () => {
+            this.battleOver = true;
+            this.winner = this.battle.getWinner();
         });
     }
 }

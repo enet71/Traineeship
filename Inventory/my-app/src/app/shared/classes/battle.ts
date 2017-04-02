@@ -1,16 +1,18 @@
 import {User} from "./user";
 import {Hero} from "./hero";
 import {Observable} from "rxjs";
+import {BattleStatisticService} from "../services/battle-statistic.service";
 
 export class Battle {
     private user1_heroList: Hero[] = [];
     private user2_heroList: Hero[] = [];
     private heroList: Hero[] = [];
     private hasWinner = false;
+    private winner: User;
     private battleInterval;
     private log = [];
 
-    constructor(private user1: User, private user2: User) {
+    constructor(private user1: User, private user2: User, private battleStatistic) {
         this.setEnemies(user1, user2);
         this.setEnemies(user2, user1);
 
@@ -53,7 +55,8 @@ export class Battle {
 
                 if (res.done) {
                     clearInterval(interval);
-                }else{
+                    observer.complete();
+                } else {
                     observer.next(res.value);
                 }
             }, 600);
@@ -135,13 +138,24 @@ export class Battle {
 
         if (user1Lose == true) {
             this.win(this.user2);
+            this.setStatistic(this.user2, this.user1);
         } else if (user2Lose == true) {
             this.win(this.user1);
+            this.setStatistic(this.user1, this.user2);
         }
     }
 
     win(user) {
-        console.log(user);
+        this.winner = user;
         this.hasWinner = true;
+    }
+
+    getWinner(): User {
+        return this.winner;
+    }
+
+    setStatistic(win, lose) {
+        const obj = {win, lose};
+        this.battleStatistic.addToList(obj);
     }
 }

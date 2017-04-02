@@ -15,7 +15,12 @@
     padding-right: 100px; }
     .versus-table .middle .versus {
       font-size: 120px;
-      color: #8c1d13; }
+      color: #8c1d13;
+      text-align: center; }
+    .versus-table .middle .winner {
+      font-size: 30px;
+      color: #1a902b;
+      text-transform: uppercase; }
     .versus-table .middle .start {
       font-size: 30px;
       color: #8c1d13;

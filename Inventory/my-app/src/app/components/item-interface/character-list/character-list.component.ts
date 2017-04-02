@@ -4,6 +4,7 @@ import {CharacterService} from "../../../shared/services/character.service";
 import {InventoryService} from "../../../shared/services/inventory.service";
 import {UserService} from "../../../shared/services/user.service";
 import {StaticMethods} from "../../../shared/classes/static-methods";
+import {User} from "../../../shared/classes/user";
 
 @Component({
     selector: 'character-list',
@@ -15,7 +16,7 @@ export class CharacterListComponent {
     private currentList = [];
     private lists = [[], [], []];
     private selectItem: number = 0;
-    private user;
+    private user: User;
 
     constructor(private characterService: CharacterService,
                 private userService: UserService,

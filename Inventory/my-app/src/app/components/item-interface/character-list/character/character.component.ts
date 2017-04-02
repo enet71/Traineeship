@@ -88,6 +88,14 @@ export class CharacterComponent implements OnInit {
         return res;
     }
 
+    getStyleCharacteristic(index) {
+        let res = {};
+        if (index == this.index) {
+            res['color'] = '#00db2e';
+        }
+        return res;
+    }
+
     getHero() {
         if (this.index == 0) {
             this.hero = this.user.getHunterStats();

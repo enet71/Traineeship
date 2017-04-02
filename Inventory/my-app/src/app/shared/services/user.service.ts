@@ -19,9 +19,9 @@ export class UserService {
         return this.users;
     }
 
-    getUserById(id){
+    getUserById(id): User {
         return this.users.find(element => {
-            if(element.getId() == id){
+            if (element.getId() == id) {
                 return true;
             }
         });
@@ -39,7 +39,7 @@ export class UserService {
         return this.users.length < this.max;
     }
 
-    clearUsers(){
+    clearUsers() {
         this.users.splice(0);
     }
 }

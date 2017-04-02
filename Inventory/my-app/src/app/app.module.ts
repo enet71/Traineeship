@@ -18,6 +18,8 @@ import {UserService} from "./shared/services/user.service";
 import {VersusTableComponent} from "./components/versus-table/versus-table.component";
 import {MenuComponent} from "./components/menu/menu.component";
 import {BattleHero} from "./components/versus-table/battle-hero/battle-hero.component";
+import {BattleStatistic} from "./components/battle-statistic/battle-statistic.component";
+import {BattleStatisticService} from "./shared/services/battle-statistic.service";
 
 @NgModule({
     declarations: [
@@ -30,7 +32,8 @@ import {BattleHero} from "./components/versus-table/battle-hero/battle-hero.comp
         ItemInterfaceComponent,
         VersusTableComponent,
         MenuComponent,
-        BattleHero
+        BattleHero,
+        BattleStatistic
     ],
     imports: [
         BrowserModule,
@@ -39,7 +42,7 @@ import {BattleHero} from "./components/versus-table/battle-hero/battle-hero.comp
         AppRoutingModule
     ],
     providers: [
-        ItemService, CharacterService, InventoryService, UserService
+        ItemService, CharacterService, InventoryService, UserService, BattleStatisticService
     ],
     bootstrap: [AppComponent]
 })
