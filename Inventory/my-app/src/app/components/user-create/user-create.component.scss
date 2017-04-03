@@ -21,11 +21,8 @@
     padding-bottom: 10px;
   }
 
-  .enter-panel{
-    font-size: 20px;
-    padding:{
-      top: 10px;
-    };
+  button{
+    color: white;
 
     span{
       cursor: pointer;
@@ -34,6 +31,29 @@
         text-decoration: underline;
       }
     }
+  }
+
+  button:disabled{
+    color: #919191;
+    span{
+      cursor: default;
+      &:hover{
+        color: #919191;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .enter{
+    background: none;
+    border: none;
+    font-size: 20px;
+
+    padding:{
+      top: 10px;
+    };
+
+
   }
 
 

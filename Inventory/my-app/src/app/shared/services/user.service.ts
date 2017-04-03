@@ -4,7 +4,7 @@ import {element} from "protractor";
 
 @Injectable()
 export class UserService {
-    private max = 2;
+    private max: number = 2;
     private users: User[] = [];
 
     addUser(user: User): boolean {
@@ -15,7 +15,7 @@ export class UserService {
         return false;
     }
 
-    getUsers() {
+    getUsers(): User[] {
         return this.users;
     }
 
@@ -27,15 +27,15 @@ export class UserService {
         });
     }
 
-    getCurrentSize() {
+    getCurrentSize(): number {
         return this.users.length;
     }
 
-    getMax() {
+    getMax(): number {
         return this.max;
     }
 
-    hasNext() {
+    hasNext(): boolean {
         return this.users.length < this.max;
     }
 

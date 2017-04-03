@@ -20,7 +20,8 @@
     .versus-table .middle .winner {
       font-size: 30px;
       color: #1a902b;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      text-align: center; }
     .versus-table .middle .start {
       font-size: 30px;
       color: #8c1d13;

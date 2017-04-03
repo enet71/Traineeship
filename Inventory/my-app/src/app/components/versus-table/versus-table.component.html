@@ -22,7 +22,7 @@
         </battle-hero>
     </div>
     <div class="middle">
-        <div *ngIf="battleOver" class="winner">{{winner.getName()}} win</div>
+        <div *ngIf="battleOver" class="winner">{{winner.getName()}}<br> win</div>
         <div class="versus">VS</div>
         <div (click)="onStart()" class="start">Start Battle</div>
     </div>

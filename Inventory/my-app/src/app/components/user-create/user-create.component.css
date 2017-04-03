@@ -14,14 +14,25 @@
   .user-create .player {
     font-size: 20px;
     padding-bottom: 10px; }
-  .user-create .enter-panel {
-    font-size: 20px;
-    padding-top: 10px; }
-    .user-create .enter-panel span {
+  .user-create button {
+    color: white; }
+    .user-create button span {
       cursor: pointer; }
-      .user-create .enter-panel span:hover {
+      .user-create button span:hover {
         color: #cecece;
         text-decoration: underline; }
+  .user-create button:disabled {
+    color: #919191; }
+    .user-create button:disabled span {
+      cursor: default; }
+      .user-create button:disabled span:hover {
+        color: #919191;
+        text-decoration: none; }
+  .user-create .enter {
+    background: none;
+    border: none;
+    font-size: 20px;
+    padding-top: 10px; }
   .user-create input {
     width: 290px; }
 
