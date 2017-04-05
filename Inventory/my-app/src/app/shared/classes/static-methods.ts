@@ -19,4 +19,12 @@ export class StaticMethods {
 
         return {strength,agility,intelligence}
     }
+
+    static setCoords(element,numItem,widthItem,heightItem) {
+        const y = Math.floor(element.inventoryIndex / numItem);
+        const x = Math.floor(element.inventoryIndex - (numItem * y));
+
+        element.left = x * widthItem + 14 + x * 4;
+        element.top = y * heightItem + 12 + y * 4;
+    }
 }

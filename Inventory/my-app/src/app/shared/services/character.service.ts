@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {StaticMethods} from "../classes/static-methods";
+import {Injectable} from '@angular/core';
+import {StaticMethods} from '../classes/static-methods';
 
 @Injectable()
 export class CharacterService {
@@ -11,7 +11,7 @@ export class CharacterService {
         intelligence: 0,
     };
 
-    calculateBonuses() {
+    public calculateBonuses() {
         this.character.strength = 0;
         this.character.agility = 0;
         this.character.intelligence = 0;
@@ -23,21 +23,21 @@ export class CharacterService {
         }
     }
 
-    getItemListCharacter() {
+    public getItemListCharacter() {
         return this.itemListCharacter;
     }
 
-    setItemListCharacter(itemList) {
+    public setItemListCharacter(itemList) {
         StaticMethods.clearPushArray(this.itemListCharacter, itemList);
     }
 
-    removeItem(item) {
+    public removeItem(item) {
         if (this.itemListCharacter.indexOf(item) != -1) {
             this.itemListCharacter.splice(this.itemListCharacter.indexOf(item), 1);
         }
     }
 
-    removeFillItems(item) {
+    public removeFillItems(item) {
         if (item.fill) {
             const length = this.itemListCharacter.length;
             for (let i = length - 1; i >= 0; i--) {
@@ -48,19 +48,35 @@ export class CharacterService {
         }
     }
 
-    clearList() {
+    public clearList() {
         this.itemListCharacter.splice(0);
     }
 
-    mageGenerate() {
-        return {strength: '100', agility: '100', intelligence: '300'};
+    public mageGenerate() {
+        return {
+            strength: this.getRandomStat(50, 150),
+            agility: this.getRandomStat(50, 150),
+            intelligence: this.getRandomStat(300, 500)
+        };
     }
 
-    warriorGenerate() {
-        return {strength: '300', agility: '100', intelligence: '100'};
+    public warriorGenerate() {
+        return {
+            strength: this.getRandomStat(300, 500),
+            agility: this.getRandomStat(50, 150),
+            intelligence: this.getRandomStat(50, 150)
+        };
     }
 
-    hunterGenerate() {
-        return {strength: '100', agility: '300', intelligence: '100'};
+    public hunterGenerate() {
+        return {
+            strength: this.getRandomStat(50, 150),
+            agility: this.getRandomStat(300, 500),
+            intelligence: this.getRandomStat(50, 150)
+        };
+    }
+
+    public getRandomStat(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 }

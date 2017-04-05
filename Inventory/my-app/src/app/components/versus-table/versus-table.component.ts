@@ -1,10 +1,11 @@
-import {Component} from "@angular/core";
-import {UserService} from "../../shared/services/user.service";
-import {itemValueList} from "../../shared/item.data";
-import {User} from "../../shared/classes/user";
-import {CharacterService} from "../../shared/services/character.service";
-import {Battle} from "../../shared/classes/battle";
-import {BattleStatisticService} from "../../shared/services/battle-statistic.service";
+import {Component} from '@angular/core';
+import {UserService} from '../../shared/services/user.service';
+import {itemValueList} from '../../shared/item.data';
+import {User} from '../../shared/classes/user';
+import {CharacterService} from '../../shared/services/character.service';
+import {Battle} from '../../shared/classes/battle';
+import {BattleStatisticService} from '../../shared/services/battle-statistic.service';
+import {FireBaseService} from '../../shared/services/firebase.service';
 
 @Component({
     selector: 'versus-table',
@@ -18,8 +19,9 @@ export class VersusTableComponent {
     private winner: User;
     private battle;
     private battleOver: boolean = false;
+    private battleLog = [];
 
-    constructor(private userService: UserService, private battleStatisticService: BattleStatisticService) {
+    constructor(private userService: UserService, private battleStatisticService: BattleStatisticService, private firebaseService: FireBaseService) {
         const users = userService.getUsers();
         this.user_1 = users[0];
         this.user_2 = users[1];
@@ -27,7 +29,7 @@ export class VersusTableComponent {
         this.user_1.calculateCharacteristics();
         this.user_2.calculateCharacteristics();
 
-        this.battle = new Battle(this.user_1, this.user_2, battleStatisticService);
+        this.battle = new Battle(this.user_1, this.user_2, battleStatisticService, this.firebaseService);
     }
 
     private leftHunter = {state: -1, health: -1};
@@ -39,9 +41,11 @@ export class VersusTableComponent {
     private rightMage = {state: -1, health: -1};
 
     onStart() {
+
         this.battle.startBattle().subscribe(element => {
-            let n = "" + element.hit + element.def;
-            switch (n) {
+            let hit = '' + element.hit + element.def;
+            this.battleLog.unshift(element);
+            switch (hit) {
                 case '03':
                     this.leftHunter.state = 0;
                     this.rightHunter.health = element.hpEnemy;

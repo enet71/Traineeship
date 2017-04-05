@@ -1,6 +1,8 @@
 @import "../../../../styles/character-coords";
+@import "../../../../styles/inventory-sprites";
 
 .tooltip{
+
   .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -8,8 +10,7 @@
     color: #fff;
     padding: 15px;
     border-radius: 6px;
-    position: absolute;
-    z-index: 100;
+    z-index: 120;
     margin-top: 10px;
     margin-left: 50px;
   }
@@ -21,26 +22,9 @@
   }
 }
 
-
 .item {
   z-index: 10;
   position: absolute;
-}
-
-.characterItemsDem {
-  background: url("http://image.prntscr.com/image/a5a35afac1e449f893566580491f26db.png") no-repeat;
-}
-
-.characterItemsWar {
-  background: url("http://image.prntscr.com/image/e22809e3ab7f4d7bbf63804384165269.png") no-repeat;
-}
-
-.characterItemsDemMini {
-  background: url("http://image.prntscr.com/image/ee043e57948749fdbf275cf3166c7a86.png") no-repeat;
-}
-
-.characterItemsWarMini{
-  background: url("http://image.prntscr.com/image/a240ae986b7d4a66bddedb2e265abd35.png") no-repeat;
 }
 
 .inventoryItems {
@@ -112,135 +96,12 @@
   background-position-y: -380px;
 }
 
-.item-inventory{
-  width: 43.5px;
-  height: 53px;
+:host {
+  .isActive {
+    background-color: red;
+  }
 }
-
-.item-inventory-0 {
-  @extend .item-inventory;
-  background-position-x: -176px;
-  background-position-y: -106px;
+.isActive {
+  background-color: red;
 }
-
-.item-inventory-1 {
-  @extend .item-inventory;
-  background-position-x: -176px;
-  background-position-y: -53px;
-}
-
-.item-inventory-2 {
-  @extend .item-inventory;
-  background-position-x: 0px;
-  background-position-y: -53px;
-}
-
-.item-inventory-3 {
-  @extend .item-inventory;
-  background-position-x: -44px;
-  background-position-y: 0px;
-}
-
-.item-inventory-4 {
-  @extend .item-inventory;
-  background-position-x: 0px;
-  background-position-y: -159px;
-}
-
-.item-inventory-5 {
-  @extend .item-inventory;
-  background-position-x: 0px;
-  background-position-y: 0px;
-}
-
-.item-inventory-6 {
-  @extend .item-inventory;
-  background-position-x: -44px;
-  background-position-y: -53px;
-}
-
-.item-inventory-7 {
-  @extend .item-inventory;
-  background-position-x: -176px;
-  background-position-y: 0px;
-}
-
-.item-inventory-8 {
-  @extend .item-inventory;
-  background-position-x: -88px;
-  background-position-y: -106px;
-}
-
-.item-inventory-9 {
-  @extend .item-inventory;
-  background-position-x: 0px;
-  background-position-y: -106px;
-}
-
-.item-inventory-10 {
-  @extend .item-inventory;
-  background-position-x: -132px;
-  background-position-y: -106px;
-}
-
-.item-inventory-11 {
-  @extend .item-inventory;
-  background-position-x: -88px;
-  background-position-y: 0px;
-}
-
-.item-inventory-12 {
-  @extend .item-inventory;
-  background-position-x: -44px;
-  background-position-y: -106px;
-}
-
-.item-inventory-13 {
-  @extend .item-inventory;
-  background-position-x: -132px;
-  background-position-y: -53px;
-}
-
-.item-inventory-14 {
-  @extend .item-inventory;
-  background-position-x: -132px;
-  background-position-y: 0px;
-}
-
-.item-inventory-15 {
-  @extend .item-inventory;
-  background-position-x: -88px;
-  background-position-y: -53px;
-}
-
-.item-inventory-16 {
-  @extend .item-inventory;
-  background-position-x: 0px;
-  background-position-y: 0px;
-}
-
-.item-inventory-17 {
-  @extend .item-inventory;
-  background-position-x: -44px;
-  background-position-y: 0px;
-}
-
-.item-inventory-18 {
-  @extend .item-inventory;
-  background-position-x: -88px;
-  background-position-y: 0px;
-}
-
-.item-inventory-19 {
-  @extend .item-inventory;
-  background-position-x: -132px;
-  background-position-y: 0px;
-}
-
-.item-inventory-19 {
-  @extend .item-inventory;
-  background-position-x: -176px;
-  background-position-y: 0px;
-}
-
 

@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import 'hammerjs';
 
 import {AppComponent} from './app.component';
 import {InventoryComponent} from "./components/item-interface/inventory/inventory.component";
@@ -20,6 +21,23 @@ import {MenuComponent} from "./components/menu/menu.component";
 import {BattleHero} from "./components/versus-table/battle-hero/battle-hero.component";
 import {BattleStatistic} from "./components/battle-statistic/battle-statistic.component";
 import {BattleStatisticService} from "./shared/services/battle-statistic.service";
+import {StoreComponent} from "./components/item-interface/store/store.component";
+import {StoreService} from "./shared/services/store.service";
+import {BattleLogComponent} from "./components/versus-table/battle-log/battle-log.component";
+import {ToolTipModule} from 'angular2-tooltip';
+import {FireBaseService} from "./shared/services/firebase.service";
+import {AngularFireModule} from "angularfire2";
+import {MaterialModule, MdTooltipModule} from "@angular/material";
+import {TooltipDirective} from "./directives/tooltip/tooltip.directive";
+
+// Must export the config
+export const firebaseConfig = {
+    apiKey: 'AIzaSyDY6WiyZa-gTvRGFtd40jFvs4OOwIsyR9w',
+    authDomain: 'inventory-b15a8.firebaseapp.com',
+    databaseURL: 'https://inventory-b15a8.firebaseio.com',
+    storageBucket: 'inventory-b15a8.appspot.com',
+    messagingSenderId: '167220229623'
+};
 
 @NgModule({
     declarations: [
@@ -33,16 +51,29 @@ import {BattleStatisticService} from "./shared/services/battle-statistic.service
         VersusTableComponent,
         MenuComponent,
         BattleHero,
-        BattleStatistic
+        BattleStatistic,
+        StoreComponent,
+        BattleLogComponent,
+        TooltipDirective
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ToolTipModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        MaterialModule,
+        MdTooltipModule
     ],
     providers: [
-        ItemService, CharacterService, InventoryService, UserService, BattleStatisticService
+        ItemService,
+        CharacterService,
+        InventoryService,
+        UserService,
+        BattleStatisticService,
+        StoreService,
+        FireBaseService
     ],
     bootstrap: [AppComponent]
 })

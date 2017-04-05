@@ -1,7 +1,9 @@
-import {User} from "./user";
-import {Hero} from "./hero";
-import {Observable} from "rxjs";
-import {BattleStatisticService} from "../services/battle-statistic.service";
+import {User} from './user';
+import {Hero} from './hero';
+import {Observable} from 'rxjs';
+import {BattleStatisticService} from '../services/battle-statistic.service';
+import {FireBaseService} from '../services/firebase.service';
+import {EventEmitter} from '@angular/core';
 
 export class Battle {
     private user1_heroList: Hero[] = [];
@@ -11,8 +13,10 @@ export class Battle {
     private winner: User;
     private battleInterval;
     private log = [];
+    private winMoney = 500;
+    private loseMoney = -250;
 
-    constructor(private user1: User, private user2: User, private battleStatistic) {
+    constructor(private user1: User, private user2: User, private battleStatistic, private firebaseService: FireBaseService) {
         this.setEnemies(user1, user2);
         this.setEnemies(user2, user1);
 
@@ -25,45 +29,44 @@ export class Battle {
         this.setReady();
     }
 
-    pushHeroList(user) {
+    public pushHeroList(user) {
         this.heroList.push(user.getHunter());
         this.heroList.push(user.getWarrior());
         this.heroList.push(user.getMage());
     }
 
-    setHeroList(user, list) {
+    public setHeroList(user, list) {
         list.push(user.getHunter());
         list.push(user.getWarrior());
         list.push(user.getMage());
     }
 
-    setEnemies(user1, user2) {
+    public setEnemies(user1, user2) {
         user1.getHunter().setEnemy(user2.getHunter());
         user1.getWarrior().setEnemy(user2.getWarrior());
         user1.getMage().setEnemy(user2.getMage());
     }
 
-    startBattle() {
+    public startBattle() {
         while (this.hasWinner == false) {
             this.hitAll();
         }
 
         let iterator = this.log[Symbol.iterator]();
-        return Observable.create(function subscribe(observer) {
+        return Observable.create((observer) => {
             const interval = setInterval(() => {
-                let res = iterator.next();
-
-                if (res.done) {
+                let result = iterator.next();
+                if (result.done) {
                     clearInterval(interval);
                     observer.complete();
                 } else {
-                    observer.next(res.value);
+                    observer.next(result.value);
                 }
             }, 600);
         });
     }
 
-    setReady() {
+    public setReady() {
         for (let hero of this.user1_heroList) {
             if (Math.random() < 0.5) {
                 hero.setReady(true);
@@ -73,7 +76,7 @@ export class Battle {
         }
     }
 
-    hitAll() {
+    public hitAll() {
         for (let hero of this.heroList) {
             if (hero.getLifeStatus()) {
                 if (hero.isReady()) {
@@ -89,17 +92,18 @@ export class Battle {
         this.checkWin();
     }
 
-    logPush(hero) {
+    public logPush(hero) {
         let logObj = {
             hit: this.heroList.indexOf(hero),
             def: this.heroList.indexOf(hero.getEnemy()),
             hpHero: hero.getHealth(),
-            hpEnemy: hero.getEnemy().getHealth()
+            hpEnemy: hero.getEnemy().getHealth(),
+            damage: hero.getDamage()
         };
         this.log.push(logObj);
     }
 
-    findEnemy(hero): Hero {
+    public findEnemy(hero): Hero {
         const list = this.getList(hero.getEnemy());
 
         let resHero;
@@ -112,7 +116,7 @@ export class Battle {
         return resHero;
     }
 
-    getList(hero): Hero[] {
+    public getList(hero): Hero[] {
         if (this.user1_heroList.indexOf(hero) != -1) {
             return this.user1_heroList;
         }
@@ -121,7 +125,7 @@ export class Battle {
         }
     }
 
-    checkWin() {
+    public checkWin() {
         let user1Lose = true;
         for (let item of this.user1_heroList) {
             if (item.getLifeStatus() == true) {
@@ -139,22 +143,30 @@ export class Battle {
         if (user1Lose == true) {
             this.win(this.user2);
             this.setStatistic(this.user2, this.user1);
+            this.user2.addMoney(this.winMoney);
+            this.user1.addMoney(this.loseMoney);
+            this.firebaseService.updateHero(this.user2.getName(), this.user2.getMoney());
+            this.firebaseService.updateHero(this.user1.getName(), this.user1.getMoney());
         } else if (user2Lose == true) {
             this.win(this.user1);
             this.setStatistic(this.user1, this.user2);
+            this.user1.addMoney(this.winMoney);
+            this.user2.addMoney(this.loseMoney);
+            this.firebaseService.updateHero(this.user2.getName(), this.user2.getMoney());
+            this.firebaseService.updateHero(this.user1.getName(), this.user1.getMoney());
         }
     }
 
-    win(user) {
+    public win(user) {
         this.winner = user;
         this.hasWinner = true;
     }
 
-    getWinner(): User {
+    public getWinner(): User {
         return this.winner;
     }
 
-    setStatistic(win, lose) {
+    public setStatistic(win, lose) {
         const obj = {win, lose};
         this.battleStatistic.addToList(obj);
     }

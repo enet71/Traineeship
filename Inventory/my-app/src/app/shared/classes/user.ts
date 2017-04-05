@@ -1,5 +1,5 @@
-import {StaticMethods} from "./static-methods";
-import {Hero} from "./hero";
+import {StaticMethods} from './static-methods';
+import {Hero} from './hero';
 
 export class User {
     private id;
@@ -7,52 +7,52 @@ export class User {
     private warrior;
     private mage;
 
-    constructor(private name: string, private characterList?, private heroList?) {
+    constructor(private name: string, private money, private characterList?, private heroList?) {
         this.id = Date.now();
     }
 
-    setCharacterList(characterList) {
+    public setCharacterList(characterList) {
         this.characterList = characterList;
     }
 
-    setHeroList(heroList) {
+    public setHeroList(heroList) {
         this.heroList = heroList;
     }
 
-    getHeroList() {
+    public getHeroList() {
         return this.heroList;
     }
 
-    getCharacterList() {
+    public getCharacterList() {
         return this.characterList;
     }
 
-    getId() {
+    public getId() {
         return this.id;
     }
 
-    getName() {
+    public getName() {
         return this.name;
     }
 
-    getBonusesOfCharacter(index) {
+    public getBonusesOfCharacter(index) {
         const list = this.characterList[index];
         return StaticMethods.calculateBonuses(list);
     }
 
-    getHunterStats() {
+    public getHunterStats() {
         return this.heroList[0];
     }
 
-    getWarriorStats() {
+    public getWarriorStats() {
         return this.heroList[1];
     }
 
-    getMageStats() {
+    public getMageStats() {
         return this.heroList[2];
     }
 
-    calculateCharacteristics() {
+    public calculateCharacteristics() {
         const bonuses_0 = this.getBonusesOfCharacter(0);
         let health = this.getHealth(+this.heroList[0].strength + +bonuses_0.strength);
         let damage = this.getDamage(+this.heroList[0].agility + +bonuses_0.agility);
@@ -79,23 +79,35 @@ export class User {
 
     }
 
-    getHealth(strength) {
+    public getHealth(strength) {
         return strength * 10;
     }
 
-    getDamage(attribute) {
+    public getDamage(attribute) {
         return attribute * 2;
     }
 
-    getHunter() {
+    public getHunter(): Hero {
         return this.hunter;
     }
 
-    getWarrior() {
+    public getWarrior(): Hero {
         return this.warrior;
     }
 
-    getMage() {
+    public getMage(): Hero {
         return this.mage;
+    }
+
+    public getMoney(): number {
+        return this.money;
+    }
+
+    public setMoney(value: number) {
+        this.money = value;
+    }
+
+    public addMoney(value: number) {
+        this.money += value;
     }
 }

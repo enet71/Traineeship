@@ -1,10 +1,10 @@
-import {Component} from "@angular/core";
-import {Router, ActivatedRoute} from "@angular/router";
-import {CharacterService} from "../../../shared/services/character.service";
-import {InventoryService} from "../../../shared/services/inventory.service";
-import {UserService} from "../../../shared/services/user.service";
-import {StaticMethods} from "../../../shared/classes/static-methods";
-import {User} from "../../../shared/classes/user";
+import {Component} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {CharacterService} from '../../../shared/services/character.service';
+import {InventoryService} from '../../../shared/services/inventory.service';
+import {UserService} from '../../../shared/services/user.service';
+import {StaticMethods} from '../../../shared/classes/static-methods';
+import {User} from '../../../shared/classes/user';
 
 @Component({
     selector: 'character-list',
@@ -57,10 +57,10 @@ export class CharacterListComponent {
     }
 
     getItemStyle(index) {
-        let res = {};
-        if (index === this.selectItem) {
-            res['text-decoration'] = 'underline';
+        let result = {};
+        if (index == this.selectItem) {
+            result['text-decoration'] = 'underline';
         }
-        return res;
+        return result;
     }
 }

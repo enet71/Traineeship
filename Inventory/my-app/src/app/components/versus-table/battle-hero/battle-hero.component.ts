@@ -1,10 +1,10 @@
 import {
     Component, trigger, state, style, transition, animate, keyframes, Input, OnChanges,
     SimpleChanges
-} from "@angular/core";
-import {Hero} from "../../../shared/classes/hero";
-import {itemValueList} from "../../../shared/item.data";
-import {animations} from "../../../shared/classes/animations";
+} from '@angular/core';
+import {Hero} from '../../../shared/classes/hero';
+import {itemValueList} from '../../../shared/item.data';
+import {animations} from '../../../shared/classes/animations';
 
 @Component({
     selector: 'battle-hero',
@@ -18,7 +18,7 @@ export class BattleHero {
     @Input() characterList;
     @Input() state;
     @Input() name;
-    private fieldWidth = 344;
+    private healthFullWidth = 344;
     private itemValueList;
 
     constructor() {
@@ -27,7 +27,7 @@ export class BattleHero {
 
     getClass(item, hero) {
         for (let element of hero) {
-            if (element.itemValue === item) {
+            if (element.itemValue == item) {
                 return [item, element.styles.spriteClassMini, element.inventoryCoordsClass];
             }
         }
@@ -35,21 +35,21 @@ export class BattleHero {
     }
 
     getHealthStyle() {
-        let res = {};
-        let n = this.fieldWidth;
+        let result = {};
+        let healthCurrentWidth = this.healthFullWidth;
         if (this.state.health != -1) {
-            n = this.state.health * 100 / this.hero.getMaxHealth();
-            n = n * this.fieldWidth / 100;
+            healthCurrentWidth = this.state.health * 100 / this.hero.getMaxHealth();
+            healthCurrentWidth = healthCurrentWidth * this.healthFullWidth / 100;
         }
-        res['width'] = n + 'px';
-        return res;
+        result['width'] = healthCurrentWidth + 'px';
+        return result;
     }
 
-    getMainStyle(){
-        let res = {};
-        if(this.state.health == 0){
-            res['background-color'] = 'rgba(69, 6, 6, 0.6)';
+    getMainStyle() {
+        let result = {};
+        if (this.state.health == 0) {
+            result['background-color'] = 'rgba(69, 6, 6, 0.6)';
         }
-        return res;
+        return result;
     }
 }

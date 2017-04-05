@@ -1,5 +1,5 @@
-import {Component} from "@angular/core";
-import {UserService} from "../../shared/services/user.service";
+import {Component} from '@angular/core';
+import {UserService} from '../../shared/services/user.service';
 
 @Component({
     selector: 'menu-component',
@@ -9,7 +9,6 @@ import {UserService} from "../../shared/services/user.service";
 
 export class MenuComponent {
     constructor(private userService: UserService) {
-
     }
 
     onClearUsers() {

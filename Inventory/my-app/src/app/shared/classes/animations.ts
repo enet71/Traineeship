@@ -1,4 +1,4 @@
-import {trigger, state, style, transition, animate, keyframes} from "@angular/core";
+import {trigger, state, style, transition, animate, keyframes} from '@angular/core';
 export const animations = [
     trigger('hero', [
         state('0', style({})),

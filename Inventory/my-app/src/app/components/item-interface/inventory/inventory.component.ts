@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Output, ViewChild, ElementRef} from "@angular/core";
-import {ItemService} from "../../../shared/services/item.service";
+import {Component, EventEmitter, Output, ViewChild, ElementRef} from '@angular/core';
+import {ItemService} from '../../../shared/services/item.service';
 
 @Component({
     selector: 'inventory',

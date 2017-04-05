@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {itemList, DataList} from "../item.data";
-import {StaticMethods} from "../classes/static-methods";
-import {Data} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {itemList, DataList} from '../item.data';
+import {StaticMethods} from '../classes/static-methods';
+import {Data} from '@angular/router';
 
 @Injectable()
 export class InventoryService {
@@ -13,15 +13,14 @@ export class InventoryService {
     private itemList = [];
 
     constructor() {
-        this.itemList = DataList.getItemList();
     }
 
-    reloadList() {
+    public reloadList() {
         DataList.reloadList();
-        StaticMethods.clearPushArray(this.itemList, DataList.getItemList());
+        StaticMethods.clearPushArray(this.itemList, []);
     }
 
-    addItem(item) {
+    public addItem(item) {
         this.itemList.sort((a, b) => a.inventoryIndex < b.inventoryIndex ? -1 : 1);
         if (this.itemList.length < this.max) {
             for (let i = 0; i < this.itemList.length; i++) {
@@ -46,30 +45,30 @@ export class InventoryService {
         }
     }
 
-    addItemInventoryIndex(item, index) {
+    public addItemInventoryIndex(item, index) {
         item.inventoryIndex = index;
         this.setCoords(item);
         this.itemList.splice(index, 0, item);
     }
 
 
-    findItemIndex(index) {
+    public findItemIndex(index) {
         return this.itemList.find(element => {
-            if (index === element.index) {
+            if (index == element.index) {
                 return element;
             }
         });
     }
 
-    findItemInventoryIndex(inventoryIndex) {
+    public findItemInventoryIndex(inventoryIndex) {
         return this.itemList.find(element => {
-            if (inventoryIndex === element.inventoryIndex) {
+            if (inventoryIndex == element.inventoryIndex) {
                 return element;
             }
         });
     }
 
-    setCoords(element) {
+    public setCoords(element) {
         const y = Math.floor(element.inventoryIndex / this.numItem);
         const x = Math.floor(element.inventoryIndex - (this.numItem * y));
 
@@ -77,7 +76,7 @@ export class InventoryService {
         element.top = y * this.heightItem + 12 + y * 4;
     }
 
-    getItemList() {
+    public getItemList() {
         this.itemList.map(element => {
             this.setCoords(element);
             return element;
@@ -85,13 +84,13 @@ export class InventoryService {
         return this.itemList;
     }
 
-    removeItem(item) {
+    public removeItem(item) {
         if (this.itemList.indexOf(item) != -1) {
             this.itemList.splice(this.itemList.indexOf(item), 1);
         }
     }
 
-    swapItems(item1, item2) {
+    public swapItems(item1, item2) {
         if (item1 !== item2) {
             const index1 = item1.inventoryIndex;
             const index2 = item2.inventoryIndex;

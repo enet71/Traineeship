@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class BattleStatisticService {
@@ -7,22 +7,22 @@ export class BattleStatisticService {
     constructor() {
     }
 
-    getBattleList() {
+    public getBattleList() {
         return JSON.parse(localStorage.getItem(this.name));
     }
 
-    setBattleList(list) {
+    public setBattleList(list) {
         localStorage.setItem(this.name, JSON.stringify(list));
     }
 
-    addToList(element) {
+    public addToList(element) {
         this.clearCircular(element);
         let list = JSON.parse(localStorage.getItem(this.name)) || [];
         list.unshift(element);
         this.setBattleList(list);
     }
 
-    clearCircular(element) {
+    public clearCircular(element) {
         element.lose.hunter.enemy = {};
         element.lose.mage.enemy = {};
         element.lose.warrior.enemy = {};

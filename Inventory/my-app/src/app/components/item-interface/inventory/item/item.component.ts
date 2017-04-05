@@ -1,6 +1,9 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {ItemService} from "../../../../shared/services/item.service";
-import {Observable} from "rxjs";
+import {Component, Input, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {ItemService} from '../../../../shared/services/item.service';
+import {Observable} from 'rxjs';
+import {StoreService} from '../../../../shared/services/store.service';
+import {ActivatedRoute} from '@angular/router';
+import {UserService} from '../../../../shared/services/user.service';
 @Component({
     selector: 'item',
     templateUrl: 'item.component.html',
@@ -9,22 +12,36 @@ import {Observable} from "rxjs";
 
 export class ItemComponent {
     @Input() item;
-    drag;
+    private drag;
+    private user;
+    private searchInput: ElementRef;
 
-    constructor(private itemService: ItemService) {
+    constructor(private itemService: ItemService,
+                private storeService: StoreService,
+                private route: ActivatedRoute,
+                private userService: UserService) {
         this.drag = itemService.drag;
+        this.route.params.subscribe(parameter => {
+            this.user = this.userService.getUserById(parameter['id']);
+        });
     }
 
     onRemove() {
-        this.itemService.toggleItem(this.item);
+        if (this.item.isBought) {
+            this.itemService.toggleItem(this.item);
+        } else {
+            this.storeService.buyItem(this.item, this.user);
+        }
     }
 
     onDragStart() {
-        setTimeout(() => {
-            this.drag.isDragged = true;
-        }, 10);
+        if (this.item.isBought) {
+            setTimeout(() => {
+                this.drag.isDragged = true;
+            }, 0);
 
-        this.itemService.dragItem = this.item;
+            this.itemService.dragItem = this.item;
+        }
     }
 
     onDragEnd() {
@@ -40,24 +57,24 @@ export class ItemComponent {
     }
 
     getStyle() {
-        let res = {};
+        let result = {};
 
         if (!this.item.status) {
-            res['top'] = this.item.top + 'px';
-            res['left'] = this.item.left + 'px';
-            res['width'] = this.item.width + 'px';
-            res['height'] = this.item.height + 'px';
+            result['top'] = this.item.top + 'px';
+            result['left'] = this.item.left + 'px';
+            result['width'] = this.item.width + 'px';
+            result['height'] = this.item.height + 'px';
         }
 
         if (this.item.opacity) {
-            res['opacity'] = 0.3;
+            result['opacity'] = 0.3;
         }
 
-        res['z-index'] = 20;
+        result['z-index'] = 20;
         if (this.itemService.drag.isDragged) {
-            res['z-index'] = 1;
+            result['z-index'] = 1;
         }
 
-        return res;
+        return result;
     }
 }

@@ -1,6 +1,9 @@
 <div class="character-list">
     <character #character [user]="user"></character>
-    <div style="padding:10px; align-items:center;">
+    <div class="under-panel">
+        <div class="start">
+            <div (click)="onStart()">Start</div>
+        </div>
         <div class="heroes">
             <div class="item" (click)="swapList(lists[0]);setSelectItem(0);character.changeIndex(0)"
                  [ngStyle]="getItemStyle(0)">Hero 1
@@ -11,9 +14,6 @@
             <div class="item" (click)="swapList(lists[2]);setSelectItem(2);character.changeIndex(2)"
                  [ngStyle]="getItemStyle(2)">Hero 3
             </div>
-        </div>
-        <div class="start">
-            <div (click)="onStart()">Start</div>
         </div>
     </div>
 </div>

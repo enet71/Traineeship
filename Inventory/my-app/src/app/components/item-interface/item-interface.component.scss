@@ -1,11 +1,16 @@
 .ext-panel {
   padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .item-interface {
+    display: flex;
+    justify-content: center;
+  }
+  .store {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.item-interface {
-  width: 1114px;
-  height: 590px;
-  margin: auto;
-  background-color: rgba(34, 21, 12, 0.51);
-  border: 1px solid #2e221d;
-}

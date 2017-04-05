@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {CharacterService} from "./character.service";
-import {InventoryService} from "./inventory.service";
+import {Injectable} from '@angular/core';
+import {CharacterService} from './character.service';
+import {InventoryService} from './inventory.service';
 
 @Injectable()
 export class ItemService {
@@ -20,15 +20,15 @@ export class ItemService {
         this.itemListCharacter = characterService.getItemListCharacter();
     }
 
-    getItemList() {
+    public getItemList() {
         return this.itemList;
     }
 
-    getItemListCharacter() {
+    public getItemListCharacter() {
         return this.itemListCharacter;
     }
 
-    toggleItem(item) {
+    public toggleItem(item) {
         this.removeItem(item);
         if (item.status == false) {
             this.moveItemToCharacter(item);
@@ -37,7 +37,7 @@ export class ItemService {
         }
     }
 
-    moveItemToAnotherPlace(dragItem, item) {
+    public moveItemToAnotherPlace(dragItem, item) {
         let replace = this.getItemByValue(item.value);
         if (replace) {
             replace.itemValue = dragItem.itemValue;
@@ -47,7 +47,7 @@ export class ItemService {
         dragItem.characterCoordsClass = item.characterCoords;
     }
 
-    moveItemToCharacter(item) {
+    public moveItemToCharacter(item) {
         const replace = this.getItemByValue(item.itemValue);
         if (replace) {
             this.removeItem(replace);
@@ -65,7 +65,7 @@ export class ItemService {
         this.characterService.calculateBonuses();
     }
 
-    moveFillItemToCharacter(item) {
+    public moveFillItemToCharacter(item) {
         let added: boolean = false;
         for (let element of item.itemValues) {
             const clone = this.createItemClone(item, element, added);
@@ -81,24 +81,24 @@ export class ItemService {
         }
     }
 
-    moveItemToInventory(item) {
+    public moveItemToInventory(item) {
         this.characterService.removeFillItems(item);
         item.status = false;
         this.inventoryService.addItem(item);
         this.characterService.calculateBonuses();
     }
 
-    getItemByValue(itemValue) {
+    public getItemByValue(itemValue) {
         let result;
         this.itemListCharacter.find(element => {
-            if (itemValue === element.itemValue) {
+            if (itemValue == element.itemValue) {
                 result = element;
             }
         });
         return result;
     }
 
-    createItemClone(item, itemValues, bonuses: boolean) {
+    public createItemClone(item, itemValues, bonuses: boolean) {
         let clone = Object.assign({}, item);
         clone.characterCoordsClass = itemValues.characterCoords;
         clone.itemValue = itemValues.value;
@@ -114,7 +114,7 @@ export class ItemService {
         return clone;
     }
 
-    setCoordsXY(element, x, y) {
+    public setCoordsXY(element, x, y) {
         if (!element.status) {
             x = Math.ceil(x / 50);
             y = Math.ceil(y / 60);
@@ -135,7 +135,7 @@ export class ItemService {
     }
 
 
-    removeItem(item) {
+    public removeItem(item) {
         if (item.status == false) {
             this.inventoryService.removeItem(item);
         } else {

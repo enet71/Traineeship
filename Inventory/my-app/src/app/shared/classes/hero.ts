@@ -15,77 +15,77 @@ export class Hero {
         this.health = maxHealth;
     }
 
-    setHealth(health) {
+    public setHealth(health) {
         this.health = health;
         this.checkLifeStatus();
     }
 
-    plusHealth(value) {
+    public plusHealth(value) {
         this.health += value;
         this.checkLifeStatus();
     }
 
-    checkLifeStatus() {
+    public checkLifeStatus() {
         if (this.health <= 0) {
             this.lifeStatus = false;
             this.health = 0;
         }
     }
 
-    getLifeStatus() {
+    public getLifeStatus() {
         return this.lifeStatus;
     }
 
-    getHealth() {
+    public getHealth() {
         return this.health;
     }
 
-    getMaxHealth() {
+    public getMaxHealth() {
         return this.maxHealth;
     }
 
-    getStrength() {
+    public getStrength() {
         return this.strength;
     }
 
-    getAgility() {
+    public getAgility() {
         return this.agility;
     }
 
-    getIntelligence() {
+    public getIntelligence() {
         return this.intelligence;
     }
 
-    getDamage() {
+    public getDamage() {
         return this.damage;
     }
 
-    isReady() {
+    public isReady() {
         return this.ready;
     }
 
-    setReady(status: boolean) {
+    public setReady(status: boolean) {
         this.ready = status;
     }
 
-    toggleReady() {
+    public toggleReady() {
         this.ready = !this.ready;
     }
 
-    getEnemy(): Hero {
+    public getEnemy(): Hero {
         return this.enemy;
     }
 
-    getHasEnemy(): boolean {
+    public getHasEnemy(): boolean {
         return this.hasEnemy;
     }
 
-    setEnemy(enemy: Hero) {
+    public setEnemy(enemy: Hero) {
         this.enemy = enemy;
         this.hasEnemy = true;
     }
 
-    hitEnemy() {
+    public hitEnemy() {
         this.enemy.plusHealth(-this.damage);
         if (!this.enemy.getLifeStatus()) {
             this.hasEnemy = false;
